@@ -1,0 +1,11 @@
+{
+  "name": "final_Year",
+  "version": "1.0.0",
+  "description": "An app for assembling of weather station components",
+  "main": "main.js",
+  "author": "Mawanda Henry",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  }
+}

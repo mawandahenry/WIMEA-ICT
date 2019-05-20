@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone = "yes"?>
+
+<list category = "images">
+
+ <image src = "pics/pic1.png"  thumby = "laptop" width = "300" height = "350" caption = "this is pic one" />
+
+  <image src = "pics/pic2.jpg" thumby = "Desktop" width = "300" height = "350" caption = "this is pic two" />
+
+ <image src = "pics/pic3.jpg"  thumby = "Recorder" width = "300" height = "350" caption = "this is pic three" />
+
+ <image src = "pics/pic4.jpg" thumby = "switcher" width ="300" height = "350" caption = "this is pic four" />
+
+ <image src = "pics/pic5.jpg" thumby = "computer" width = "300" height = "350" caption = "this is pic five" />
+
+</list>
