@@ -91,3 +91,6 @@ function locatePointer(e){
   var posY = e.clientY;
   console.log(posX);
 }
+var mnet = document.getElementById('bus');
+var offf = getOffset(mnet);
+console.log(offf);

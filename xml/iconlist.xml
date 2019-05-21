@@ -2,14 +2,14 @@
 
 <list category = "images">
 
- <image src = "pics/pic1.png"  thumby = "laptop" width = "300" height = "350" caption = "this is pic one" />
+ <image src = "pics/pic1.png" central = "false" thumby = "laptop" width = "300" height = "350" caption = "this is pic one" />
 
-  <image src = "pics/pic2.jpg" thumby = "Desktop" width = "300" height = "350" caption = "this is pic two" />
+  <image src = "pics/pic2.jpg" central = "false" thumby = "Desktop" width = "300" height = "350" caption = "this is pic two" />
 
- <image src = "pics/pic3.jpg"  thumby = "Recorder" width = "300" height = "350" caption = "this is pic three" />
+ <image src = "pics/pic3.jpg"  central = "true" thumby = "Recorder" width = "300" height = "350" caption = "this is pic three" />
 
- <image src = "pics/pic4.jpg" thumby = "switcher" width ="300" height = "350" caption = "this is pic four" />
+ <image src = "pics/pic4.jpg" central = "false" thumby = "switcher" width ="300" height = "350" caption = "this is pic four" />
 
- <image src = "pics/pic5.jpg" thumby = "computer" width = "300" height = "350" caption = "this is pic five" />
+ <image src = "pics/pic5.jpg" central = "false" thumby = "computer" width = "300" height = "350" caption = "this is pic five" />
 
 </list>

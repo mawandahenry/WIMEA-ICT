@@ -115,3 +115,21 @@ nav{
   border: 3px solid green;
   border-radius: 5px;
 }
+.lastActive{
+  border: 3px solid yellow;
+  border-radius: 5px;
+}
+.previous{
+  border: 3px solid pink;
+  border-radius: 5px;
+}
+.running{
+  position: absolute;
+}
+.main{
+  border: 1px dashed gray;
+  width: 250px;
+  height: 300px;
+  margin-left: 35%;
+  margin-top: 8%;
+}
