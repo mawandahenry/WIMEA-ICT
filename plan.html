@@ -10,22 +10,22 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <script src = "js/jquery.min.js"></script>
-      <script src = "js/queries.js"></script>
+    <script src = "js/queries.js"></script>
+
   </head>
   <body>
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-light  haras">
       <ul class="navbar-nav ml-auto ">
-
         <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Manual-Assembly
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="software.html">10 Meter Node</a>
-              <a class="dropdown-item" href="network.html">2 Meter Node</a>
-              <a class="dropdown-item" href="equipment.html">Ground Node</a>
-              <a class="dropdown-item" href="support.html">LPG</a>
+              <a class="dropdown-item" href="#">10 Meter Node</a>
+              <a class="dropdown-item" href="#">2 Meter Node</a>
+              <a class="dropdown-item" href="#">Ground Node</a>
+              <a class="dropdown-item" href="#">LPG</a>
             </div>
           </li>
           <li class="nav-item dropdown ">
@@ -33,10 +33,10 @@
                 Automatic-Assembly
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">10 Meter Node</a>
-                <a class="dropdown-item" href="#">2 Meter Node</a>
-                <a class="dropdown-item" href="#">Ground Node</a>
-                <a class="dropdown-item" href="#">LPG</a>
+                <a class="dropdown-item aut" href="#">10 Meter Node</a>
+                <a class="dropdown-item aut" href="#">2 Meter Node</a>
+                <a class="dropdown-item aut" href="#">Ground Node</a>
+                <a class="dropdown-item aut" href="#">LPG</a>
               </div>
             </li>
             <li class="nav-item dropdown ">
@@ -50,6 +50,17 @@
                   <a class="dropdown-item" href="#">LPG</a>
                 </div>
               </li>
+              <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Options
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">show commands</a>
+                    <a class="dropdown-item" href="#">empty</a>
+                    <a class="dropdown-item" href="#">empty</a>
+                    <a class="dropdown-item" href="#">empty</a>
+                  </div>
+                </li>
         </ul>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -67,13 +78,26 @@
 <div id="main" class="row">
   <div class = "col-md-2 dash">
     <h6 class="text-center">Component Library</h6>
+    <div>
+      <table class = "table">
+        <tbody id="ban">
+
+        </tbody>
+      </table>
+    </div>
 
   </div>
   <div class="col-md-10 canva">
-
-
-  </div>
-
+    <div>
+<table class="table">
+  <tr>
+    <td>auto</td><td>3m</td><td>Results</td>
+  </tr>
+</table>
+<div id="cava">
+</div>
+</div>
+</div>
 </div>
 <footer class="foot">
   <div class="yip">
@@ -82,11 +106,16 @@
     <span class = "fas fa-play m"><span>
     <span class = "fas fa-stop m"><span>
     <span class = "fas fa-forward m"><span>
-
-    </div>
-
+</div>
 </footer>
     <script src="js/main.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
+  <script>
+  $(function(){
+    $('.aut').click(function(evt){
+      readXml('xml/iconlist.xml');
+    })
+  })
+  </script>
 </html>

@@ -66,10 +66,11 @@
   var x = tagObj[0].attributes[0];
   for(var i = 0; i<tagObj.length; i++){
     arr.push(tagObj[i].attributes[0].nodeValue);
-    tag += "<img id='drag1' class = 'opo' src ='"+tagObj[i].attributes[0].nodeValue+"' width='50' height='50' draggable = 'true' ondragstart='drag(event)'>";
+    var first = tagObj[i].attributes[4].nodeValue.replace(/['"]+/g, '');
+    tag += "<tr><td><img id='drag1' class = 'opo' src ='"+tagObj[i].attributes[0].nodeValue+"' width='50' height='50' draggable = 'true' ondragstart='drag(event)'></td><td>"+first+"</td></tr>";
 
   }
-  document.getElementById('dashItems').innerHTML = tag;
+  document.getElementById('ban').innerHTML = tag;
 
   }
 
@@ -83,4 +84,10 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
+}
+function locatePointer(e){
+  var e = window.event;
+  var posX = e.clientX;
+  var posY = e.clientY;
+  console.log(posX);
 }
