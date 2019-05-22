@@ -133,3 +133,63 @@ nav{
   margin-left: 35%;
   margin-top: 8%;
 }
+.i2c{
+  position: absolute;
+  border: 1px dashed gray;
+  width: 100px;
+  height: 100px;
+  margin-left: 25%;
+  margin-top: -9%;
+
+}
+.temp{
+
+    position: absolute;
+    border: 1px dashed gray;
+    width: 100px;
+    height: 100px;
+    margin-left: 12%;
+    margin-top: -9%;
+
+
+}
+/*    the starting point for 2m node page    */
+.main_2m{
+  border: 1px dashed gray;
+  width: 200px;
+  height: 250px;
+  margin-left: 37%;
+  margin-top: 2%;
+}
+.touched{
+  border:4px dashed green;
+}
+.untouched{
+  border:1px dashed grey;
+}
+.beat{
+  border: 1px solid gray;
+}
+.batery{
+  border: 1px dashed gray;
+  width: 100px;
+  height: 100px;
+  margin-left: 45%;
+  margin-top: 3%;
+}
+.boost{
+  border: 1px dashed gray;
+  width: 100px;
+  height: 100px;
+  margin-left: 45%;
+  margin-top: 3%;
+}
+.panel{
+
+    border: 1px dashed gray;
+    width: 100px;
+    height: 100px;
+    margin-left: 58%;
+    margin-top: -9%;
+
+}
