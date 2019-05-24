@@ -112,7 +112,7 @@ nav{
 
 }
 .activeNow{
-  border: 3px solid green;
+  border: 3px solid dodgerblue;
   border-radius: 5px;
 }
 .lastActive{
@@ -134,32 +134,24 @@ nav{
   margin-top: 8%;
 }
 .i2c{
-  position: absolute;
   border: 1px dashed gray;
   width: 100px;
   height: 100px;
-  margin-left: 25%;
-  margin-top: -9%;
-
+  margin: 2%;
 }
 .temp{
-
-    position: absolute;
     border: 1px dashed gray;
-    width: 100px;
-    height: 100px;
-    margin-left: 12%;
-    margin-top: -9%;
-
-
+    width: 150px;
+    height: 90px;
+    margin: 2%;
 }
 /*    the starting point for 2m node page    */
 .main_2m{
   border: 1px dashed gray;
   width: 200px;
   height: 250px;
-  margin-left: 37%;
-  margin-top: 2%;
+  margin: 2%;
+
 }
 .touched{
   border:4px dashed green;
@@ -171,25 +163,55 @@ nav{
   border: 1px solid gray;
 }
 .batery{
+
   border: 1px dashed gray;
   width: 100px;
   height: 100px;
-  margin-left: 45%;
-  margin-top: 3%;
+  margin: 2%;
+
 }
 .boost{
   border: 1px dashed gray;
   width: 100px;
   height: 100px;
-  margin-left: 45%;
-  margin-top: 3%;
+  margin: 2%;
 }
 .panel{
-
+    osition: absolute;
     border: 1px dashed gray;
     width: 100px;
     height: 100px;
-    margin-left: 58%;
-    margin-top: -9%;
+    margin: 2%;
 
+}
+.dragie{
+  color: green;
+}
+.empti{
+  border: 1px dashed red;
+}
+.pointed{
+  border: 3px dashed purple;
+}
+.defaulty{
+  border: 1px dashed gray;
+}
+.awosome{
+  border: 4px dashed green;
+}
+.wrongie{
+  border: 4px dashed red;
+}
+.owk{
+  width: 30%;
+  position: absolute;
+  margin-left: 65%;
+  margin-top: -40%;
+  display: none;
+}
+.poor{
+  color: red;
+}
+.good{
+  color: green;
 }

@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="styles/jquery-ui.min.css" type="text/css">
     <script src = "js/jquery.min.js"></script>
     <script src = "js/jquery-ui.min.js"></script>
-
-
+    <script src = "js/queries.js"></script>
   </head>
   <body>
 
@@ -57,7 +56,7 @@
                     Options
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">show commands</a>
+                    <a class="dropdown-item con" href="#">Connector</a>
                     <a class="dropdown-item" href="#">empty</a>
                     <a class="dropdown-item" href="#">empty</a>
                     <a class="dropdown-item" href="#">empty</a>
@@ -80,7 +79,7 @@
 <div id="main" class="row">
   <div class = "col-md-2 dash">
     <h6 class="text-center">Component Library</h6>
-    <div>
+    <div class ="work">
       <table class = "table">
         <tbody id="ban">
 
@@ -112,20 +111,23 @@
     <span class = "fas fa-forward m"><span>
 </div>
 </footer>
-
-    <script src="js/main.js"></script>
-    <script src = "js/queries.js"></script>
-    <script src="js/bootstrap.min.js"></script>
   </body>
+  <script src="js/main.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
   <script>
   $(function(){
-    console.log(getOffset($('.main')));
+
     $('.images').click(function(evt){
       evt.preventDefault();
       var category = evt.target.text;
       readXml('xml/'+category+'.xml');
-      $('.canva').empty().load('layouts/2m.html');
+      $('.canva').empty().load('layouts/twoMeter.html');
+    });
+    $('.con').click(function(e){
+      $('.dash').append(createDiv());
     })
+
   })
   </script>
 </html>
