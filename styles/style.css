@@ -2,6 +2,7 @@ body{
   background-image: url('../images/bg.png');
 
 }
+
 #div1{
   position:absolute;
   background-color:blue;
@@ -64,16 +65,16 @@ nav{
   background-color: DodgerBlue;
 }
 .dash{
-  height: 570px;
+  height: 630px;
   overflow-y: scroll;
   background-color: white;
 }
 .canva{
-  height: 100%;
+
   overflow-y: scroll;
   background-color: white;
   width: 100%;
-  height: 570px;
+  height: 630px;
 }
 
 .menux{
@@ -125,6 +126,7 @@ nav{
 }
 .running{
   position: absolute;
+cursor: grab;
 }
 .main{
   border: 1px dashed gray;
@@ -163,26 +165,25 @@ nav{
   border: 1px solid gray;
 }
 .batery{
-
   border: 1px dashed gray;
   width: 100px;
   height: 100px;
-  margin: 2%;
-
+  margin-left: 38%;
 }
 .boost{
   border: 1px dashed gray;
   width: 100px;
   height: 100px;
-  margin: 2%;
+  margin-top: 1%;
+  margin-left: 38%;
 }
 .panel{
     osition: absolute;
     border: 1px dashed gray;
     width: 100px;
     height: 100px;
-    margin: 2%;
-
+    margin-left: 38%;
+    margin-top: 1%;
 }
 .dragie{
   color: green;
@@ -214,4 +215,9 @@ nav{
 }
 .good{
   color: green;
+}
+.contx{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
 }

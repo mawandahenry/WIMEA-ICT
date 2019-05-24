@@ -130,7 +130,7 @@ function setDimensions($place1, $place2){
   var y1 = $place1.offset().top;
   var h1 = $place1.outerHeight(true);
   var w1 = $place1.outerWidth(true);
-
+console.log(x1, y1, h1, w1);
   $place2.offset().left = x1;
   $place2.offset().top = y1;
   //$place2.outerHeight() = h1;
