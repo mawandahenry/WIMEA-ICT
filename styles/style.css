@@ -221,3 +221,7 @@ cursor: grab;
   flex-direction: row;
   border: 1px solid red;
 }
+.wrappie{
+  display: flex;
+  flex-direction: column;
+}

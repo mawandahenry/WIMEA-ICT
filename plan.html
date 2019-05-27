@@ -27,6 +27,9 @@
               <a class="dropdown-item images" href="#" id="2m">2 Meter Node</a>
               <a class="dropdown-item images" href="#">Ground Node</a>
               <a class="dropdown-item images" href="#">LPG</a>
+              <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Another link</a>
+    </div>
             </div>
           </li>
           <li class="nav-item dropdown ">
@@ -41,14 +44,14 @@
               </div>
             </li>
             <li class="nav-item dropdown ">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle exp1" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Explore
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">10 Meter Node</a>
-                  <a class="dropdown-item" href="#">2 Meter Node</a>
-                  <a class="dropdown-item" href="#">Ground Node</a>
-                  <a class="dropdown-item" href="#">LPG</a>
+                  <a class="dropdown-item exp" href="#">10 Meter Node</a>
+                  <a class="dropdown-item exp" href="#">2 Meter Node</a>
+                  <a class="dropdown-item exp" href="#">Ground Node</a>
+                  <a class="dropdown-item exp" href="#">LPG</a>
                 </div>
               </li>
               <li class="nav-item dropdown ">
@@ -128,8 +131,14 @@
     });
     $('.con').click(function(e){
       $('.dash').append(createDiv());
+    });
+    $('.exp1').click(function(ex){
+      ex.preventDefault();
+      $('.canva').empty().load('layouts/explore.html');
     })
-
+    $('.exp').click((e) => {
+      alert(e.target.text);
+    })
   })
   </script>
 </html>
