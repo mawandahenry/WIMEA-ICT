@@ -1,12 +1,12 @@
 <div class="ms2">
-  <div class="temp" id="temp" is2meter = "true" style="display:inline-block; padding:50px;">
+  <div class="temp text-center" id="temp" is2meter = "true" style="display:inline-block; ">
 
     </div>
 
-  <div class="i2c" id="i2c" is2meter = "true" style="display:inline-block; padding:50px;">
+  <div class="i2c text-center" id="i2c" is2meter = "true" style="display:inline-block;">
 
     </div>
-    <div class="main_2m" id="main_2m" is2meter = "true" style="display:inline-block; padding:50px;">
+    <div class="main_2m" id="main_2m" is2meter = "true" >
 
       </div>
 <div class="batery" id="batery" is2meter = "true">
@@ -24,10 +24,12 @@
   <tr><td>Right connections:</td><td id="rightcon"></td></tr>
 <tr><td>wrong connections:</td><td id="wrong"></td></tr>
 <tr><td>Percentage:</td><td id="perc"></td></tr>
-<tr><td><button class = "btn btn-danger">close</button></td><td></td></tr>
+<tr><td><button class = "btn btn-danger">close</button></td><td><button class = "btn btn-info">right connection</button></td></tr>
 </table>
-
+<span class = "buttons">
+<button class = "btn btn-warning" style="float: right;" id="clear">Clear</button>
 <button class = "btn btn-primary" style="float: right;" id="award">Check out</button>
+</span>
 </div>
 
 
@@ -47,7 +49,8 @@
       return poc_arr;
     }
     $('#ban').on('click','.opo', function(evt){
-      $('.ms2').append("<img id = \"drag\" src = '"+evt.target.attributes[2].nodeValue+"' width='100' is_main ='"+evt.target.attributes[3].nodeValue+"' height='100' class = 'draggable running '/>");
+
+      $('.ms2').append("<img id = \"drag\" src = '"+evt.target.attributes[1].nodeValue+"' width='100' is_main ='"+evt.target.attributes[2].nodeValue+"' height='100' class = 'draggable running '/>");
       $( ".draggable" ).draggable({
           start: function(ex) {
 
@@ -57,32 +60,37 @@
               $(this).addClass('activeNow');
              },
          drag: function(ex) {
+             var starter = looper();
            var condi = ex.target.attributes[3].nodeValue;
-
             var c_hei = ex.target.attributes[4].nodeValue;
+            for(var i = 0; i < starter.length; i++){
+              if(collision($('.'+starter[i].classList[0]), $(this)) && condi === "true"){
+                $('.'+starter[i].classList[0]).addClass('touched');
+                //console.log(__dimensions);
+                  ex.target.attributes[2].nodeValue = 200;
+                  ex.target.attributes[4].nodeValue = 250;
 
-            if(collision($('.main_2m'), $(this)) && condi === "true"){
-              $('.main_2m').addClass('touched');
-              //console.log(__dimensions);
-                ex.target.attributes[2].nodeValue = 200;
-                ex.target.attributes[4].nodeValue = 250;
-              $(this).removeClass('lastActive');
-            }else{
-              $('.main_2m').removeClass('touched');
-              ex.target.attributes[2].nodeValue = 100;
-              ex.target.attributes[4].nodeValue = 100;
+              }
             }
 
+
+            // else if(){
+            // }
+            // else{
+            //   $('.main_2m').removeClass('touched');
+            //   ex.target.attributes[2].nodeValue = 100;
+            //   ex.target.attributes[4].nodeValue = 100;
+            // }
+
         },
-        stop: function finalize() {
+        stop: function() {
           var loopin = looper();
            $(this).removeClass('lastActive');
             $(this).removeClass('activeNow');
             for(var i =0; i < loopin.length; i++){
               if(collision($('#'+loopin[i].id), $(this))){
-                 $('#'+loopin[i].id).addClass('pointed');
                  if($('#'+loopin[i].id).find('img').length){
-                    console.log('taken');
+                  alert('img');
                  }else{
                     setDimensions($('#'+loopin[i].id),$(this));
                    $('#'+loopin[i].id).html($(this));
@@ -116,17 +124,28 @@ $('#award').click(function(e){
      'images/solar panel 0.png'
    ];
    var favs = $(this).find('div');
-   console.log(favs);
+
    var sum = 0;
    var total = favs.length;
+   var empties = [];
    for(var x =0; x < favs.length; x++){
-     if(favs[x].childNodes[0].attributes[1].nodeValue == results[x]){
+     if(favs[x].children.length == 0){
+       empties.push(favs[x]);
+
+       for(var i =0; i< empties.length; i++){
+          $('.'+empties[i].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('dull').text("empty");
+        }
+
+       }
+
+    else if(favs[x].childNodes[0].attributes[1].nodeValue == results[x]){
        sum++
        $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('awosome');
 
      }else{
         $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('wrongie');
      }
+
    }
   $('#rightcon').text(sum);
   $('#wrong').text(total-sum);
@@ -137,7 +156,17 @@ $('#award').click(function(e){
  })
 })
 
-
+$('.ms2').on('dblclick', '.running', function(evt){
+  //deleteItem(evt.target);
+  $('#draggable').show();
+  $('#del').click(function(){
+      deleteItem(evt.target);
+      $('#draggable').css({"display": "none"});
+  })
+})
+$('#clear').click(function(){
+  clearCanvas($('.ms2'));
+})
   });
 
   </script>

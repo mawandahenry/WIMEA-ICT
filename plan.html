@@ -89,6 +89,7 @@
 
   </div>
   <div class="col-md-10 canva">
+
     <div>
       <u><b><h5 class="text-center mt-5" style = "font-weight:bold;">WELCOME TO WIMEA-ICT AWS SETUP GUIDE</h5></b></u>
       <p class="lead text-center">Learn more about the automatic weather stations and how
@@ -106,6 +107,9 @@
 </div>
 </div>
 </div>
+</div>
+<div id="draggable" class="ui-widget-content">
+  <button class = "btn btn-danger mt-5 ml-4" id="del">Delete</button>
 </div>
 <footer class="foot">
   <div class="yip">
@@ -126,19 +130,19 @@
     $('.images').click(function(evt){
       evt.preventDefault();
       var category = evt.target.text;
-      readXml('xml/'+category+'.xml');
+      readXml('xml/'+category+'.xml','ban', 'opo');
       $('.canva').empty().load('layouts/twoMeter.html');
     });
     $('.con').click(function(e){
       $('.dash').append(createDiv());
     });
-    $('.exp1').click(function(ex){
-      ex.preventDefault();
+
+    $('.exp').click(function(evt){
+      evt.preventDefault();
+      var category = evt.target.text;
+      readXml('xml/'+category+'.xml');
       $('.canva').empty().load('layouts/explore.html');
-    })
-    $('.exp').click((e) => {
-      alert(e.target.text);
-    })
+    });
   })
   </script>
 </html>

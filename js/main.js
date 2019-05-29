@@ -1,12 +1,12 @@
 
+/* connectHorizontal was meant to connect 2 divs in horizontal way*/
 function connectHorizontal(div1, div2, color, thickness) {
-    var off_1 = getOffset(div1);
-    var off_2 = getOffset(div2);
-    console.log(off_1);
-    console.log(off_2);
-    var x1 =  off_1.left+off_1.width;
-    var y1 = off_1.left;
-    var x2 = off_2.left;
+    var off_1 = getOffset(div1); //get top, left, width and height
+    var off_2 = getOffset(div2); //get top, left, width and height
+
+    var x1 =  off_1.left+off_1.width; //x1 = width + left offset
+    var y1 = off_1.left;             //y1 = left offset
+    var x2 = off_2.left;            // x2 = left offset again
     var y2 = off_2.left+off_2.height/2;
     var length = Math.sqrt(((x2-x1) * (x2-x1)) + ((y2-y1) * (y2-y1)));
 
@@ -61,7 +61,7 @@ function connectHorizontal(div1, div2, color, thickness) {
       return { top: _y, left: _x, width: _w, height: _h };
   }
 
-  function readXml(xmlFile){
+  function readXml(xmlFile, placement,itemClass){
 
   var xmlDoc;
   var arr = new Array();
@@ -86,11 +86,11 @@ function connectHorizontal(div1, div2, color, thickness) {
   for(var i = 0; i<tagObj.length; i++){
     arr.push(tagObj[i].attributes[0].nodeValue);
     var first = tagObj[i].attributes[2].nodeValue.replace(/['"]+/g, '');
-    tag += "<tr><td><img id='drag1' class = 'opo' src ='"+tagObj[i].attributes[0].nodeValue+"' is_main = "+tagObj[i].attributes[3].nodeValue+" width='50' height='50' ></td><td>"+first+"</td></tr>";
+    tag += "<tr><td><img  class = '"+itemClass+"' src ='"+tagObj[i].attributes[0].nodeValue+"' is_main = "+tagObj[i].attributes[3].nodeValue+" width='50' height='50' ></td><td>"+first+"</td></tr>";
     // console.log(tagObj[i])
 
   }
-  document.getElementById('ban').innerHTML = tag;
+  document.getElementById(placement).innerHTML = tag;
 
   }
 
@@ -130,7 +130,7 @@ function setDimensions($place1, $place2){
   var y1 = $place1.offset().top;
   var h1 = $place1.outerHeight(true);
   var w1 = $place1.outerWidth(true);
-console.log(x1, y1, h1, w1);
+
   $place2.offset().left = x1;
   $place2.offset().top = y1;
   //$place2.outerHeight() = h1;
@@ -142,10 +142,7 @@ return $place2;
 function createDiv(){
   var counter = 0;
 
-  var tx = "<svg class='dragie' width='500' height='500'><line x1='50' y1='50' x2='350' y2='350' stroke='black'/></svg>"
+  var tx = "<svg class='dragon' width='100' height='100'><line x1='50' y1='50' x2='350' y2='350' stroke='black'/></svg>"
 
   return tx;
-}
-function loadTarget($file){
-  
 }

@@ -125,8 +125,7 @@ nav{
   border-radius: 5px;
 }
 .running{
-  position: absolute;
-cursor: grab;
+  cursor: grab;
 }
 .main{
   border: 1px dashed gray;
@@ -139,20 +138,27 @@ cursor: grab;
   border: 1px dashed gray;
   width: 100px;
   height: 100px;
-  margin: 2%;
+  left: 16%;
+  top: 23%;
+  position: absolute;
 }
 .temp{
     border: 1px dashed gray;
-    width: 150px;
-    height: 90px;
-    margin: 2%;
+    width: 100px;
+    height: 100px;
+    left: 4%;
+    top: 23%;
+    position: absolute;
 }
 /*    the starting point for 2m node page    */
 .main_2m{
   border: 1px dashed gray;
   width: 200px;
   height: 250px;
-  margin: 2%;
+  left: 28%;
+  margin-top: 2%;
+  position: absolute;
+  overflow: visible;
 
 }
 .touched{
@@ -168,22 +174,25 @@ cursor: grab;
   border: 1px dashed gray;
   width: 100px;
   height: 100px;
-  margin-left: 38%;
+  left: 38%;
+  top: 45%;
+  position:absolute;
 }
 .boost{
   border: 1px dashed gray;
   width: 100px;
   height: 100px;
-  margin-top: 1%;
-  margin-left: 38%;
+  top: 63%;
+  left: 38%;
+  position: absolute;
 }
 .panel{
-    osition: absolute;
+    position: absolute;
     border: 1px dashed gray;
     width: 100px;
     height: 100px;
-    margin-left: 38%;
-    margin-top: 1%;
+    left: 38%;
+    top: 81%;
 }
 .dragie{
   color: green;
@@ -206,8 +215,8 @@ cursor: grab;
 .owk{
   width: 30%;
   position: absolute;
-  margin-left: 65%;
-  margin-top: -40%;
+  left: 65%;
+  top:  50%;
   display: none;
 }
 .poor{
@@ -224,4 +233,19 @@ cursor: grab;
 .wrappie{
   display: flex;
   flex-direction: column;
+}
+#draggable{
+   width: 150px;
+   height: 150px;
+    padding: 0.5em;
+   border: 2px solid red;
+    display: none;
+   }
+.dull{
+  border: 2px solid yellow;
+}
+.buttons{
+  position: absolute;
+  top: 87%;
+  left: 83%;
 }
