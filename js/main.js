@@ -146,28 +146,28 @@ function createDiv(){
 
   return tx;
 }
-function start_pos(){
-    document.getElementById("img").style.top = '40px';
-    document.getElementById("img").style.left = '20px';
-    document.getElementById("img1").style.top = '100px';
-    document.getElementById("img1").style.left = '20px';
-    document.getElementById("img2").style.top = '160px';
-    document.getElementById("img2").style.left = '20px';
-}
-
-function right(){       //moves image to the right
-    document.getElementById("img").style.top = '440px';
-    document.getElementById("img").style.left = '550px';
-
-    setTimeout(function(){
-        document.getElementById("img1").style.top = '220px';
-    document.getElementById("img1").style.left = '550px';
-    }, 4000);
-
-    setTimeout(function(){
-        document.getElementById("img2").style.top = '20px';
-    document.getElementById("img2").style.left = '660px';
-    }, 8000);
-    //animate = setTimeout(right, 1000);
-    adjustLine('img', 'img1', 'line');
-}
+// function start_pos(){
+//     document.getElementById("img").style.top = '40px';
+//     document.getElementById("img").style.left = '20px';
+//     document.getElementById("img1").style.top = '100px';
+//     document.getElementById("img1").style.left = '20px';
+//     document.getElementById("img2").style.top = '160px';
+//     document.getElementById("img2").style.left = '20px';
+// }
+//
+// function right(){       //moves image to the right
+//     document.getElementById("img").style.top = '440px';
+//     document.getElementById("img").style.left = '550px';
+//
+//     setTimeout(function(){
+//         document.getElementById("img1").style.top = '220px';
+//     document.getElementById("img1").style.left = '550px';
+//     }, 4000);
+//
+//     setTimeout(function(){
+//         document.getElementById("img2").style.top = '20px';
+//     document.getElementById("img2").style.left = '660px';
+//     }, 8000);
+//     //animate = setTimeout(right, 1000);
+//     adjustLine('img', 'img1', 'line');
+// }
