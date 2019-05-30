@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="images/WIMEA.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>AWS setup Guide</title>
+    <title>BSE Year 4</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="styles/style.css" type="text/css">
@@ -90,6 +90,7 @@
 
   </div>
   <div class="col-md-10 canva">
+
     <div>
       <u><b><h5 class="text-center mt-5" style = "font-weight:bold;">WELCOME TO WIMEA-ICT AWS SETUP GUIDE</h5></b></u>
       <p class="lead text-center">Learn more about the automatic weather stations and how
@@ -107,6 +108,9 @@
 </div>
 </div>
 </div>
+</div>
+<div id="draggable" class="ui-widget-content">
+  <button class = "btn btn-danger mt-5 ml-4" id="del">Delete</button>
 </div>
 <footer class="foot">
   <div class="yip">
@@ -127,19 +131,19 @@
     $('.images').click(function(evt){
       evt.preventDefault();
       var category = evt.target.text;
-      readXml('xml/'+category+'.xml');
+      readXml('xml/'+category+'.xml','ban', 'opo');
       $('.canva').empty().load('layouts/twoMeter.html');
     });
     $('.con').click(function(e){
       $('.dash').append(createDiv());
     });
-    $('.exp1').click(function(ex){
-      ex.preventDefault();
+
+    $('.exp').click(function(evt){
+      evt.preventDefault();
+      var category = evt.target.text;
+      readXml('xml/'+category+'.xml');
       $('.canva').empty().load('layouts/explore.html');
-    })
-    $('.exp').click((e) => {
-      alert(e.target.text);
-    })
+    });
   })
   </script>
 </html>
