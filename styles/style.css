@@ -249,3 +249,32 @@ nav{
   top: 87%;
   left: 83%;
 }
+* {
+    transition: all 2s;
+}
+#img{
+    position: absolute;
+    top: 40px;
+    left: 20px;
+}
+#img1{
+    position: absolute;
+    top: 100px;
+    left: 20;
+}
+#img2{
+    position: absolute;
+    top: 160;
+    left: 20;
+}
+#img3{
+    background-color: red;
+    position: absolute;
+    top: 550;
+    left: 950;
+}
+#line{
+    position: absolute;
+    width: 1px;
+    background-color: red;
+}

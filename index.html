@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="images/WIMEA.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>BSE Year 4</title>
+    <title>AWS setup guide</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="styles/style.css" type="text/css">
@@ -39,7 +39,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item " href="#">10 Meter Node</a>
-                <a class="dropdown-item " href="#">2 Meter Node</a>
+                <a class="dropdown-item  autom" href="#">2 Meter Node</a>
                 <a class="dropdown-item " href="#">Ground Node</a>
                 <a class="dropdown-item " href="#">LPG</a>
               </div>
@@ -144,6 +144,10 @@
       readXml('xml/'+category+'.xml');
       $('.canva').empty().load('layouts/explore.html');
     });
+    $('.autom').click(function(evt) {
+      evt.preventDefault();
+        $('.canva').empty().load('layouts/transition.html');
+    })
   })
   </script>
 </html>
