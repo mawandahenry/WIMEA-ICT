@@ -234,6 +234,7 @@ nav{
   display: flex;
   flex-direction: column;
 }
+<<<<<<< HEAD
 #draggable{
    width: 150px;
    height: 150px;
@@ -248,4 +249,13 @@ nav{
   position: absolute;
   top: 87%;
   left: 83%;
+=======
+/* controlling the display of the video controls */
+footer{
+  display: none;
+}
+/*changing nav links to color white */
+.navbar-nav > li{
+  color: white;
+>>>>>>> naco
 }

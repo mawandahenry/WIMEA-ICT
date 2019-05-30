@@ -6,27 +6,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>BSE Year 4</title>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="styles/style.css" type="text/css">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css" type="text/css">
     <script src = "js/jquery.min.js"></script>
+    <script src = "js/jquery-ui.min.js"></script>
+    <script src = "js/queries.js"></script>
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <div id="div1">
-&nbsp;
-</div>
-<br/><br/>
-<div id="div2" style="">
-&nbsp;
-</div>
-<input type="button" onclick="testIt();" value="Draw Line" class = "btn btn-success"/>
-<input type="button" onclick="readXml('xml/iconlist.xml');" value="ReadFile" class = "btn btn-success"/>
-<div id="photos">
 
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light  haras">
+      <ul class="navbar-nav ml-auto ">
+        <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Manual-Assembly
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item images" href="#">10 Meter Node</a>
+              <a class="dropdown-item images" href="#" id="2m">2 Meter Node</a>
+              <a class="dropdown-item images" href="#">Ground Node</a>
+              <a class="dropdown-item images" href="#">LPG</a>
+              <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Another link</a>
+    </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Automatic-Assembly
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item " href="#">10 Meter Node</a>
+                <a class="dropdown-item " href="#">2 Meter Node</a>
+                <a class="dropdown-item " href="#">Ground Node</a>
+                <a class="dropdown-item " href="#">LPG</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle exp1" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Explore
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item exp" href="#">10 Meter Node</a>
+                  <a class="dropdown-item exp" href="#">2 Meter Node</a>
+                  <a class="dropdown-item exp" href="#">Ground Node</a>
+                  <a class="dropdown-item exp" href="#">LPG</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown ">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Options
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item con" href="#">Connector</a>
+                  </div>
+                </li>
+        </ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ml-auto ">
+        <li class="nav-item">
+          <img src="images/WIMEA.png" alt="" class="img-rounded center-block" width="150">
+        </li>
+          </ul>
+            <div style=" color: white; font-weight: bold;"> AUTOMATIC WEATHER STATION SETUP GUIDE</div>
+    </div>
+  </nav>
+<div id="main" class="row">
+  <div class = "col-md-2 dash">
+    <h6 class="text-center" style = "font-weight:bold;">Component Library</h6>
+    <div class ="work">
+      <table class = "table">
+        <tbody id="ban">
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="col-md-10 canva">
+
+    <div>
+      <u><b><h5 class="text-center mt-5" style = "font-weight:bold;">WELCOME TO WIMEA-ICT AWS SETUP GUIDE</h5></b></u>
+      <p class="lead text-center">Learn more about the automatic weather stations and how
+        the different nodes can be assembled.</p>
+        <p class="lead text-center">You can also try out assembling a node by choosing the node
+          under manual assembly.</p>
+<!--<table class="table">
+  <tr>
+    <td>auto</td><td>3m</td><td>Results</td>
+  </tr>
+</table>-->
+<div id="cava">
+  <div class="mai" id='bus'>
+  </div>
 </div>
-<div id="divx" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <script src="js/main.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+</div>
+</div>
+</div>
+<div id="draggable" class="ui-widget-content">
+  <button class = "btn btn-danger mt-5 ml-4" id="del">Delete</button>
+</div>
+<footer class="foot">
+  <div class="yip">
+    <span class = "fas fa-backward m"><span>
+    <span class = "fas fa-pause m"><span>
+    <span class = "fas fa-play m"><span>
+    <span class = "fas fa-stop m"><span>
+    <span class = "fas fa-forward m"><span>
+</div>
+</footer>
   </body>
+  <script src="js/main.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+  $(function(){
+
+    $('.images').click(function(evt){
+      evt.preventDefault();
+      var category = evt.target.text;
+      readXml('xml/'+category+'.xml','ban', 'opo');
+      $('.canva').empty().load('layouts/twoMeter.html');
+    });
+    $('.con').click(function(e){
+      $('.dash').append(createDiv());
+    });
+
+    $('.exp').click(function(evt){
+      evt.preventDefault();
+      var category = evt.target.text;
+      readXml('xml/'+category+'.xml');
+      $('.canva').empty().load('layouts/explore.html');
+    });
+  })
+  </script>
 </html>
