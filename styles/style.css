@@ -225,3 +225,11 @@ cursor: grab;
   display: flex;
   flex-direction: column;
 }
+/* controlling the display of the video controls */
+footer{
+  display: none;
+}
+/*changing nav links to color white */
+.navbar-nav > li{
+  color: white;
+}
