@@ -234,14 +234,13 @@ nav{
   display: flex;
   flex-direction: column;
 }
-<<<<<<< HEAD
 #draggable{
-   width: 150px;
-   height: 150px;
+    width: 150px;
+    height: 150px;
     padding: 0.5em;
-   border: 2px solid red;
+    border: 2px solid red;
     display: none;
-   }
+}
 .dull{
   border: 2px solid yellow;
 }
@@ -249,13 +248,4 @@ nav{
   position: absolute;
   top: 87%;
   left: 83%;
-=======
-/* controlling the display of the video controls */
-footer{
-  display: none;
-}
-/*changing nav links to color white */
-.navbar-nav > li{
-  color: white;
->>>>>>> naco
 }

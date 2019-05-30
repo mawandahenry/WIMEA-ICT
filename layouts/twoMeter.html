@@ -63,13 +63,23 @@
              var starter = looper();
            var condi = ex.target.attributes[3].nodeValue;
             var c_hei = ex.target.attributes[4].nodeValue;
+
+
             for(var i = 0; i < starter.length; i++){
-              if(collision($('.'+starter[i].classList[0]), $(this)) && condi === "true"){
-                $('.'+starter[i].classList[0]).addClass('touched');
+              if(collision($('.main_2m'), $(this)) && $(this)[0].attributes[3].nodeValue){
+                $('.main_2m').removeClass('defaulty').addClass('touched');
                 //console.log(__dimensions);
                   ex.target.attributes[2].nodeValue = 200;
                   ex.target.attributes[4].nodeValue = 250;
 
+              }
+              else if (collision($('.'+starter[i].classList[0]), $(this))){
+                  $('.'+starter[i].classList[0]).addClass('pointed');
+              }
+              else{
+                $('.'+starter[i].classList[0]).removeClass('touched').removeClass('pointed');
+                ex.target.attributes[2].nodeValue = 100;
+                ex.target.attributes[4].nodeValue = 100;
               }
             }
 
@@ -84,16 +94,21 @@
 
         },
         stop: function() {
+
           var loopin = looper();
            $(this).removeClass('lastActive');
             $(this).removeClass('activeNow');
+              $(this).removeClass('pointed');
+             //console.log($(this)[0].attributes[6].nodeValue);
             for(var i =0; i < loopin.length; i++){
               if(collision($('#'+loopin[i].id), $(this))){
                  if($('#'+loopin[i].id).find('img').length){
-                  alert('img');
+                   $(this)[0].attributes[6].nodeValue = 0;
+
                  }else{
-                    setDimensions($('#'+loopin[i].id),$(this));
+
                    $('#'+loopin[i].id).html($(this));
+                    $(this).css({'position': 'relative', 'top': 0, 'left': 0});
 
 
                  }
@@ -103,7 +118,7 @@
               }
             }
             $('.main_2m').removeClass('touched');
-              $('#boost').removeClass('pointed').addClass('defaulty');
+
 
         }
       })
