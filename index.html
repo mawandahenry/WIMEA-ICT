@@ -18,21 +18,22 @@
   <body>
 
     <nav class="navbar sticky-top navbar-expand-lg navbar-light  haras">
+      <!--    manual selection area                  -->
       <ul class="navbar-nav ml-auto ">
         <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Manual-Assembly
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item images" href="#">10 Meter Node</a>
-              <a class="dropdown-item images" href="#" id="2m">2 Meter Node</a>
-              <a class="dropdown-item images" href="#">Ground Node</a>
-              <a class="dropdown-item images" href="#">LPG</a>
-              <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Another link</a>
+              <a class="dropdown-item manual_select" href="#">10 Meter Node</a>
+              <a class="dropdown-item manual_select" href="#" id="2m">2 Meter Node</a>
+              <a class="dropdown-item manual_select" href="#">Ground Node</a>
+              <a class="dropdown-item manual_select" href="#">LPG</a>
+
     </div>
             </div>
           </li>
+            <!--    automatic selection area                  -->
           <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Automatic-Assembly
@@ -44,6 +45,7 @@
                 <a class="dropdown-item " href="#">LPG</a>
               </div>
             </li>
+              <!--    explore selection area                  -->
             <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle exp1" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Explore
@@ -55,12 +57,13 @@
                   <a class="dropdown-item exp" href="#">LPG</a>
                 </div>
               </li>
+                <!--    connector selection area                  -->
               <li class="nav-item dropdown ">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Options
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item con" href="#">Connector</a>
+                    <a class="dropdown-item connector" href="#">Connector</a>
                   </div>
                 </li>
         </ul>
@@ -97,11 +100,7 @@
         the different nodes can be assembled.</p>
         <p class="lead text-center">You can also try out assembling a node by choosing the node
           under manual assembly.</p>
-<!--<table class="table">
-  <tr>
-    <td>auto</td><td>3m</td><td>Results</td>
-  </tr>
-</table>-->
+
 <div id="cava">
   <div class="mai" id='bus'>
   </div>
@@ -127,27 +126,26 @@
   <script src="js/bootstrap.min.js"></script>
   <script>
   $(function(){
-
-    $('.images').click(function(evt){
+// responsible for making manual selections on the nav
+    $('.manual_select').click(function(evt){
       evt.preventDefault();
-      var category = evt.target.text;
-      readXml('xml/'+category+'.xml','ban', 'opo');
-      $('.canva').empty().load('layouts/twoMeter.html');
+      var category = evt.target.text;//returns the text on the clicked element
+      readXml('xml/'+category+'.xml','ban', 'opo');// reads xml, assigns the destination id and also the class to associate with the images
+      $('.canva').empty().load('layouts/groundNode.html');// clears our drawing canvas and loads our 2m drawing area
+
+
     });
-    $('.con').click(function(e){
-      $('.dash').append(createDiv());
+    $('.connector').click(function(e){
+      e.preventDefault(); //appends the connector on the drawing canvas
+      $('.ms2').append(createDiv()); //appends div to act as our connector
     });
 
-    $('.exp').click(function(evt){
-      evt.preventDefault();
-      var category = evt.target.text;
-      readXml('xml/'+category+'.xml');
-      $('.canva').empty().load('layouts/explore.html');
-    });
-    $('.autom').click(function(evt) {
+
+    $('.autom').click(function(evt) { //
       evt.preventDefault();
         $('.canva').empty().load('layouts/transition.html');
     })
+
   })
   </script>
 </html>

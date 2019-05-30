@@ -44,6 +44,7 @@ function connectHorizontal(div1, div2, color, thickness) {
       var cx = ((x1 + x2) / 2) - (length / 2);
       var cy = ((y1 + y2) / 2) - (thickness / 2);
       var angle = Math.atan2((y1-y2),(x1-x2))*(180/Math.PI);
+
       var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
       document.body.innerHTML += htmlLine;
   }
@@ -101,12 +102,12 @@ function connectHorizontal(div1, div2, color, thickness) {
 
 
 function collision($div1, $div2) {
-        var x1 = $div1.offset().left;
-        var y1 = $div1.offset().top;
+        var x1 = $div1.offset().left; //left ooffset for div1
+        var y1 = $div1.offset().top;// top offset for div 1
 
 
-        var h1 = $div1.outerHeight(true);
-        var w1 = $div1.outerWidth(true);
+        var h1 = $div1.outerHeight(true); // return outerHeight for div1
+        var w1 = $div1.outerWidth(true); // return outerWidth for div1
         var b1 = y1 + h1;
         var r1 = x1 + w1;
 
@@ -140,34 +141,33 @@ return $place2;
 }
 
 function createDiv(){
-  var counter = 0;
-
-  var tx = "<svg class='dragon' width='100' height='100'><line x1='50' y1='50' x2='350' y2='350' stroke='black'/></svg>"
-
+  var counter = 1;
+  var tx = "<div id = 'wire"+counter+"' height='1' class = 'wire'></div>";
+  counter++;
   return tx;
 }
-// function start_pos(){
-//     document.getElementById("img").style.top = '40px';
-//     document.getElementById("img").style.left = '20px';
-//     document.getElementById("img1").style.top = '100px';
-//     document.getElementById("img1").style.left = '20px';
-//     document.getElementById("img2").style.top = '160px';
-//     document.getElementById("img2").style.left = '20px';
-// }
-//
-// function right(){       //moves image to the right
-//     document.getElementById("img").style.top = '440px';
-//     document.getElementById("img").style.left = '550px';
-//
-//     setTimeout(function(){
-//         document.getElementById("img1").style.top = '220px';
-//     document.getElementById("img1").style.left = '550px';
-//     }, 4000);
-//
-//     setTimeout(function(){
-//         document.getElementById("img2").style.top = '20px';
-//     document.getElementById("img2").style.left = '660px';
-//     }, 8000);
-//     //animate = setTimeout(right, 1000);
-//     adjustLine('img', 'img1', 'line');
-// }
+function start_pos(){
+    document.getElementById("img").style.top = '40px';
+    document.getElementById("img").style.left = '20px';
+    document.getElementById("img1").style.top = '100px';
+    document.getElementById("img1").style.left = '20px';
+    document.getElementById("img2").style.top = '160px';
+    document.getElementById("img2").style.left = '20px';
+}
+
+function right(){       //moves image to the right
+    document.getElementById("img").style.top = '440px';
+    document.getElementById("img").style.left = '550px';
+
+    setTimeout(function(){
+        document.getElementById("img1").style.top = '220px';
+    document.getElementById("img1").style.left = '550px';
+    }, 4000);
+
+    setTimeout(function(){
+        document.getElementById("img2").style.top = '20px';
+    document.getElementById("img2").style.left = '660px';
+    }, 8000);
+    //animate = setTimeout(right, 1000);
+    adjustLine('img', 'img1', 'line');
+}

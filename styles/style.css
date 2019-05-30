@@ -249,9 +249,7 @@ nav{
   top: 87%;
   left: 83%;
 }
-* {
-    transition: all 2s;
-}
+
 #img{
     position: absolute;
     top: 40px;
@@ -277,4 +275,48 @@ nav{
     position: absolute;
     width: 1px;
     background-color: red;
+}
+.arrow{
+  stroke:rgb(0,0,0);
+  stroke-width:2;
+  marker-end:url(#markerArrow);
+}
+.wire{
+  border: 1px solid black;
+  width: 30px;
+  position: absolute;
+  top: 4%;
+  cursor: grab;
+}
+.raingauge{
+  border: 1px dashed gray;
+  width: 100px;
+  height: 100px;
+  left: 18%;
+  top: 4%;
+  position: absolute;
+}
+.pressure{
+    border: 1px dashed gray;
+    width: 100px;
+    height: 100px;
+    left: 18%;
+    top: 25%;
+    position: absolute;
+}
+.soil_temp{
+  border: 1px dashed gray;
+  width: 100px;
+  height: 100px;
+  left: 25%;
+  top: 45%;
+  position:absolute;
+}
+.soil_moist{
+  border: 1px dashed gray;
+  width: 100px;
+  height: 100px;
+  left: 47%;
+  top: 23%;
+  position:absolute;
 }
