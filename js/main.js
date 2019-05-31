@@ -142,7 +142,7 @@ return $place2;
 
 function createDiv(){
   var counter = 1;
-  var tx = "<div id = 'wire"+counter+"' height='1' class = 'wire'></div>";
+  var tx = "<div id = 'wire"+counter+"' height='1' class = 'wire'>hahhahhaha</div>";
   counter++;
   return tx;
 }
@@ -170,4 +170,51 @@ function right(){       //moves image to the right
     }, 8000);
     //animate = setTimeout(right, 1000);
     adjustLine('img', 'img1', 'line');
+}
+function connect_trial(div1, div2, color, thickness) {
+
+    var x1 = div1.x;
+    var y1 = div1.y;
+    var x2 = div2.x;
+    var y2 = div2.y;
+
+
+    var length = Math.sqrt(((x2-x1) * (x2-x1)) + ((y2-y1) * (y2-y1)));
+
+    line.style.border = '1px solid red';
+
+
+    console.log(length);
+    var cx = ((x1 + x2) / 2) - (length / 2);
+    var cy = ((y1 + y2) / 2) - (thickness / 2);
+    var angle = Math.atan2((y1-y2),(x1-x2))*(180/Math.PI);
+    line.style.transform = "rotate("+angle+"deg)";
+    document.body.appendChild(line);
+    //var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
+    //document.body.innerHTML += htmlLine;
+    //document.body.appendChild(htmlLine);
+}
+function connect_images(obj1, obj2){
+  var x1 = obj1.x;
+  var y1 = obj1.y;
+
+  var x2 = obj2.x;
+  var y2 = obj2.y;
+   var distance = Math.sqrt( ((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)));
+    var xmid = (x1+x2)/2;
+   var ymid = (y1+y2)/2;
+   var slopeinRad = Math.atan2(y1-y2,  x1-x2);
+   var slopeinDeg = (slopeinRad * 180)/Math.PI;
+   var line = document.createElement('div');
+   line.setAttribute("id", "line_id");
+   line.style.width = distance+'px';
+   line.style.top = ymid;
+   line.style.border = "1px solid green";
+   line.style.left = xmid-(distance/2);
+   line.style.transform = "rotate("+slopeinDeg+"deg)";
+   line.style.position = "absolute";
+   console.log(distance);
+   document.body.appendChild(line);
+
+
 }

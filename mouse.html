@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mouse Coordinates</title>
+        <script src="js/jquery.min.js"></script>
+        <script type ="text/javascript">
+            function point_it(event){
+                pos_x = event.clientX;
+                pos_y = event.clientY;
+                // var coords = document.getElementById(coords_id);
+                // coords.innerHTML = 'x:'+ pos_x + ', y: '+ pos_y;
+                return  pos_x, pos_y;
+            }
+            // function drawLine(div1, div2,coords1,coords2, event1, event2){
+            //     var div1_point = point_it(event1, div1, coords1);
+            //     var div2_point = point_it(event2, div2, coords2);
+            //     var x1, x2, y1, y2;
+            //     x1 = div1_point.pos_x;
+            //     y1 = div1_point.pos_y;
+            //     //cordinates two
+            //     x2 = div2_point.pos_x;
+            //     y2 = div2_point.pos_y;
+            //
+            //     console.log(y1);
+            // }
+
+          //  drawLine('windSpeed', 'solar_panel', 'cords', 'coords', event);
+
+
+        </script>
+    </head>
+
+    <body>
+            <img  id = "windSpeed" src = "images/wind_speed.png" width = "100" height ="100" class ="cod" selected = "null" lastSelected = "null"/>
+            <div id = "cords"></div>
+            <img  id = "solar_panel" src = "images/solar panel 0.png" width = "100" height ="100" class = "cod" selected = "null" lastSelected = "null"/>
+            <div id = "coords"></div>
+              <img  id = "solar_panel" src = "images/solar panel 0.png" width = "100" height ="100" class = "not_sel" selected = "null" lastSelected = "null"/>
+    </body>
+    <script>
+    $(function(){
+var my_arr = [];
+$('.cod').click(function(el){
+
+  if(my_arr.length == 0){
+    var point1 = {};
+    var x = el.clientX;
+    var y = el.clientY;
+    point1 = {x,y};
+    my_arr.push(point1);
+    console.log(my_arr);
+  }
+  else if(my_arr.length == 1){
+
+    var point2 = {};
+    var x = el.clientX;
+    var y = el.clientY;
+    point2 = {x,y};
+    my_arr.push(point2);
+    console.log(my_arr[1]);
+    console.log(my_arr[0]);
+    //console.log(y);
+    connect_images(my_arr[0], my_arr[1]);
+    my_arr.splice(0,my_arr.length)
+
+  }
+  else{
+  console.log('hahahahahaha');
+  }
+
+})
+
+    });
+    </script>
+    <script src="js/main.js"></script>
+</html>
