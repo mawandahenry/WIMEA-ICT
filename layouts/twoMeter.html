@@ -1,25 +1,13 @@
 <div class="ms2">
-  <div class="temp" id="temp" is2meter = "true" style="display:inline-block; padding:50px;">
 
-    </div>
 
-  <div class="i2c" id="i2c" is2meter = "true" style="display:inline-block; padding:50px;">
 
-    </div>
-    <div class="main_2m" id="main_2m" is2meter = "true" style="display:inline-block; padding:50px;">
 
-      </div>
-<div class="batery" id="batery" is2meter = "true">
 
- </div>
 
-  <div class="boost" id="boost" is2meter = "true">
 
-</div>
 
-<div class="panel" id="panel" is2meter = "true">
 
-</div>
 <table class = "table owk">
   <tr><td>Right connections:</td><td id="rightcon"></td></tr>
 <tr><td>wrong connections:</td><td id="wrong"></td></tr>
@@ -34,20 +22,10 @@
   <script>
   $(function(){
 
-    function looper(){
-      var poc_arr = [];
-      $('.ms2').each(function(evt){
-        var tok = $(this.children);
-        for(var i =0; i<tok.length; i++ ){
-         if(tok[i].hasAttribute("is2meter")){
-           poc_arr.push(tok[i]);
-         }
-        }
-      })
-      return poc_arr;
-    }
+var count = 0;
     $('#ban').on('click','.opo', function(evt){
-      $('.ms2').append("<img id = \"drag\" src = '"+evt.target.attributes[2].nodeValue+"' width='100' is_main ='"+evt.target.attributes[3].nodeValue+"' height='100' class = 'draggable running '/>");
+      $('.ms2').append("<img id = 'drag"+count+"' src = '"+evt.target.attributes[2].nodeValue+"' width='100' is_main ='"+evt.target.attributes[3].nodeValue+"' height='100' class = 'draggable running '/>");
+      count++;
       $( ".draggable" ).draggable({
           start: function(ex) {
 
@@ -55,47 +33,48 @@
                 $(this).removeClass('lastActive').addClass('activeNow');
               }
               $(this).addClass('activeNow');
+
+
              },
+
          drag: function(ex) {
-           var condi = ex.target.attributes[3].nodeValue;
 
-            var c_hei = ex.target.attributes[4].nodeValue;
 
-            if(collision($('.main_2m'), $(this)) && condi === "true"){
-              $('.main_2m').addClass('touched');
-              //console.log(__dimensions);
-                ex.target.attributes[2].nodeValue = 200;
-                ex.target.attributes[4].nodeValue = 250;
-              $(this).removeClass('lastActive');
-            }else{
-              $('.main_2m').removeClass('touched');
-              ex.target.attributes[2].nodeValue = 100;
-              ex.target.attributes[4].nodeValue = 100;
-            }
+
 
         },
-        stop: function finalize() {
-          var loopin = looper();
+        stop: function () {
+          points = [];
            $(this).removeClass('lastActive');
             $(this).removeClass('activeNow');
-            for(var i =0; i < loopin.length; i++){
-              if(collision($('#'+loopin[i].id), $(this))){
-                 $('#'+loopin[i].id).addClass('pointed');
-                 if($('#'+loopin[i].id).find('img').length){
-                    console.log('taken');
-                 }else{
-                    setDimensions($('#'+loopin[i].id),$(this));
-                   $('#'+loopin[i].id).html($(this));
 
-
-                 }
-                }
-              else{
-                $('#'+loopin[i].id).removeClass('pointed').addClass('defaulty');
-              }
-            }
             $('.main_2m').removeClass('touched');
               $('#boost').removeClass('pointed').addClass('defaulty');
+              $('.ms2').on('click', '.running', function(el){
+              el.stopImmediatePropagation();
+              if(points.length == 0){
+                var x = el.pageX;
+                var y = el.pageY;
+
+                var points_ar = {};
+                points_ar = {x,y};
+                points.push(points_ar);
+
+              }
+              else if(points.length ==1){
+                var x = el.clientX;
+                var y = el.clientY;
+                var parent = el.target.attributes[0].nodeValue;
+                console.log(parent);
+                var points_ar = {};
+                points_ar = {x,y};
+                points.push(points_ar);
+                points.push(parent);
+                //console.log(points[1]);
+                connect_images(points[0], points[1], points[2]);
+                points.splice(0,points.length);
+              }
+          })
 
         }
       })

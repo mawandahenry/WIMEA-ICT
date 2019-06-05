@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>DC Boost Converter</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">dc_boost_converter.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>
+		Used for raising (boosting) the voltage from the solar panel used to charge the Li-ion capcitor or the Li-ion battery.
+	</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="in-voltage">Input voltage 2V - 24V</property>
+		<property title="current">Maximum output current 2A</property>
+		<property title="out-voltage">Maximum output voltage: 28V (It is best to use in less than 26V)</property>
+		<property title="efficiency">Efficiency:＞ 93% (efficiency associated with input and output pressure)</property>
+		<property title="size">Size: 30mm * 17mm * 14mm (L * W * H)</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		DC boost voltage converter input 2-24V; 1A Boost power module output 5-28V, large adjustable range for various electronics.
+		Maximum output amperage 2A, recommend current under 2A Boost power converter with micro USB power input, it can power with micro USB charge cable.
+		Boost power supply module can also weld with wires to input and output power Adjustable dc buck boost converter, easily adjust voltage and amperage by screwing CV
+		High efficient step up voltage regulator, 93% conversion efficiency and low heat generated. 
+		DC boost step up converter tiny in size, nice to use with micro equipment
+		Boost voltage regulator versatile to charge your electronics and lithium battery with suitable voltage and amperage, drive LED lights and more. 
+		Boost voltage stabilizer also ideal to DIY power bank, micro electronics equipment voltage stabilizer and more.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://hobbycomponents.com/power/698-xl60009-dc-dc-step-up-boost-converter</link>
+	
+</component>

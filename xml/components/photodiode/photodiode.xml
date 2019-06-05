@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Photodiode</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">photodiode_main.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+	<image title="adc1">rss2_mote_ADC1.png</image>
+	<image title="isp">rss2_mote_ISP.png</image>
+	<image title="i2c">rss2_mote_I2C.png</image>
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Converts Light into electrical current.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<operationMode title="operationMode">Photovoltaic, Photoconductive & Avalanche diode modes.</operationMode>
+		<materials title="materials">Silicon, Germanium, Indium Gallium</materials>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		It is a form of light-weight sensor that converts light energy into electrical voltage or current.
+		Photodiode is a type of semi conducting device with PN junction.
+		Between the p (positive) and n (negative) layers, an intrinsic layer is present.
+		The photo diode accepts light energy as input to generate electric current.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.electronicshub.org/photodiode-working-characteristics-applications/</link>
+	
+</component>

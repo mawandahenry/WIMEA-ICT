@@ -233,3 +233,8 @@ footer{
 .navbar-nav > li{
   color: white;
 }
+.ms2{
+  width: 100%;
+  border: 1px solid red;
+  height: 100%;
+}

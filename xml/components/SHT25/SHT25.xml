@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>SHT25 (Temperature/Relative Humidity Sensor)</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">sht25_daughtercard.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+	<image title="sensor">sht25_sensor.png</image>
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used for capturing the Relative Humidity (RH) and the Temperature (T).</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="rh_callibration">Fully Callibrated with 1.8% RH accuracy</property>
+		<property title="i2c">Digital output with I2C interface</property>
+		<property title="power">Low power consumption</property>
+		<property title="durability">Excellent long term stability</property>
+		<property title="reflow">DFN type package - reflow solderable.</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		SHT25, the new humidity and temperature sensor of Sensirion is about to set new standards in terms of size and intelligence: Embedded in a reflow solderable Dual
+		Flat No leads (DFN) package of 3 x 3mm foot print and 1.1mm height it provides calibrated, linearized signals in digital, true I2C format.
+		With a completely new designed CMOSens® chip, a reworked capacitive type humidity sensor and an improved band gap temperature sensor the performance
+		has been lifted even beyond the outstanding level of the previous sensor generation (SHT1x and SHT7x).
+		For example, measures have been taken to stabilize the behavior at high humidity levels.
+		Every sensor is individually calibrated and tested. Lot identification is printed on the sensor and an electronic identification code is stored on the chip – which can be
+		read out by command. Furthermore, the resolution of SHT25 can be changed by command (8/12bit up to 12/14bit for RH/T), low battery can be detected and a
+		checksum helps to improve communication reliability. 
+		With made improvements and the miniaturization of the sensor the performance-to-price ratio has been improved– and eventually, any device should benefit from the cutting edge energy saving operation mode. 
+		For testing SHT25 a new evaluation Kit EK-H4 is available.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://cdn.sos.sk/productdata/bf/f4/e1c6ad4c/sht-25.pdf</link>
+	
+</component>

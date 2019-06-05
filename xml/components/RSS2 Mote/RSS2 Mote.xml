@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>RSS2 Mote</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">rss2_mote_general.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+	<image title="back">rss2_mote_main_back.png</image>
+	<image title="adc1">rss2_mote_ADC1.png</image>
+	<image title="isp">rss2_mote_ISP.png</image>
+	<image title="i2c">rss2_mote_I2C.png</image>
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used as a connection point for all sensors, captures and broadcasts weather data.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="rtc">RTC: 32kHz RTC xtal</property>
+		<property title="lightSensor">Light Sensor</property>
+		<property title="tempSensor">Temp Sensor: Onboard temp sensor DS18B20</property>
+		<property title="uart">UART: Standard. 6-pin TTL-USB header for FTDI cable for UART</property>
+		<property title="radio">RADIO: Robust radio performance. Up to 300 meter line-of-sight</property>
+		<property title="mcu">MCU: Based on MCU AtMega128RFR2</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		Boards all looks the same. AtMega256RFR2 boards are labeled with "Made in EU".
+		The platform and CPU code, are common for both boards, can be found under $(CONTIKI)/platfrom/avr-rssa.
+		The port was developed and tested with RSS2.
+		This guide assumes that you have basic understanding of how to use the command line and perform basic admin tasks on UNIX family OSs.
+		You should also have understanding about the Contiki OS design as well have C programming skills.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://github.com/contiki-os/contiki/tree/master/platform/avr-rss2</link>
+	
+</component>

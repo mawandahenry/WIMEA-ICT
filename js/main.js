@@ -146,6 +146,33 @@ function createDiv(){
 
   return tx;
 }
-function loadTarget($file){
-  
+function insertAfter(el, referenceNode){
+  referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
 }
+function connect_images(obj1, obj2, div){
+  var counter = 8;
+  var x1 = obj1.x;
+  var y1 = obj1.y;
+
+  var x2 = obj2.x;
+  var y2 = obj2.y;
+   var distance = Math.sqrt( ((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)));
+    var xmid = (x1+x2)/2;
+   var ymid = (y1+y2)/2;
+   var line_id = "line"+x1;
+   var slopeinRad = Math.atan2(y1-y2,  x1-x2);
+   var slopeinDeg = (slopeinRad * 180)/Math.PI;
+   var line = document.createElement('div');
+   line.setAttribute("id", line_id);
+
+   line.setAttribute('class','drawer');
+   line.style.position = "absolute"
+   line.style.width = distance+'px';
+   line.style.top = (ymid-58)+'px';
+   line.style.border = "1px solid black";
+   line.style.left = (xmid-(distance/2))-245+'px';
+   line.style.transform = "rotate("+slopeinDeg+"deg)";
+
+   var ref = document.getElementById(div);
+   insertAfter(line, ref);
+ }

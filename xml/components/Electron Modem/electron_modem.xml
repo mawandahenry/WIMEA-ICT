@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Electron Modem</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">electron_modem_main.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+	<image title="adc1">rss2_mote_ADC1.png</image>
+	<image title="isp">rss2_mote_ISP.png</image>
+	<image title="i2c">rss2_mote_I2C.png</image>
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used for creating cellular connected electronics projects and products.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<cellular title="cellular">U-blox SARA-U260/U270 (3G) and G350 (2G) cellular module</cellular>
+		<RAM title="RAM">1MB flash, 128KB RAM</RAM>
+		<LED title="LED">RGB status LED</LED>
+		<design title="design">Open source design</design>
+		<OS title="OS">Real-time operating system</OS>
+		<peripherals title="peripherals">30 mixed-signal GPIO and advanced peripherals</peripherals>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		The Electron is a tiny development kit for creating cellular-connected electronics projects and products.
+		It comes with a SIM card (Nano 4FF) and an affordable data plan for low-bandwidth things.
+		Plus it's available for more than 100 countries worldwide!
+		It also comes with Particle's development tools and cloud platform for managing and interacting with your new connected hardware.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://docs.particle.io/datasheets/cellular/electron-datasheet/</link>
+	
+</component>
