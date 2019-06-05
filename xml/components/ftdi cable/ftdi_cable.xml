@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>FTDI Cable</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">ftdi_cable_main.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+	<image title="adc1">rss2_mote_ADC1.png</image>
+	<image title="isp">rss2_mote_ISP.png</image>
+	<image title="i2c">rss2_mote_I2C.png</image>
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>It allows a simple to connect TTL interface devices to USB.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<chip title="chip">FTDI FT232RL usb/serial chip embedded in the head.</chip>
+		<pin title="pin">6-pin socket</pin>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		The FTDI cable is a USB to Serial (TTL level) converter which allows for a simple way to connect TTL interface devices to USB.
+		The I/O pins of this FTDI cable are configured to operate at 5V.
+		Itis designed around an FT232RQ, which is housed in a USB A connector.
+		The other side of the cable is terminated with a 0.1" pitch, 6-pin connector with the following pinout: RTS, RX, TX, 5V, CTS, GND (RTS is the green cable and GND is black).
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.adafruit.com/product/70</link>
+	
+</component>

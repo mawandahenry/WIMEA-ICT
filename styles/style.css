@@ -135,7 +135,7 @@ nav{
   margin-top: 8%;
 }
 .i2c{
-  border: 1px dashed gray;
+  border: 1px dashed white;
   width: 100px;
   height: 100px;
   left: 16%;
@@ -143,7 +143,7 @@ nav{
   position: absolute;
 }
 .temp{
-    border: 1px dashed gray;
+    border: 1px dashed white;
     width: 100px;
     height: 100px;
     left: 4%;
@@ -152,7 +152,17 @@ nav{
 }
 /*    the starting point for 2m node page    */
 .main_2m{
-  border: 1px dashed gray;
+  border: 1px dashed white;
+  width: 200px;
+  height: 250px;
+  left: 28%;
+  margin-top: 2%;
+  position: absolute;
+  overflow: visible;
+
+}
+.main_ground{
+
   width: 200px;
   height: 250px;
   left: 28%;
@@ -171,7 +181,7 @@ nav{
   border: 1px solid gray;
 }
 .batery{
-  border: 1px dashed gray;
+  border: 1px dashed white;
   width: 100px;
   height: 100px;
   left: 38%;
@@ -179,7 +189,7 @@ nav{
   position:absolute;
 }
 .boost{
-  border: 1px dashed gray;
+  border: 1px dashed white;
   width: 100px;
   height: 100px;
   top: 63%;
@@ -188,7 +198,7 @@ nav{
 }
 .panel{
     position: absolute;
-    border: 1px dashed gray;
+    border: 1px dashed white;
     width: 100px;
     height: 100px;
     left: 38%;
@@ -276,11 +286,7 @@ nav{
     width: 1px;
     background-color: red;
 }
-.arrow{
-  stroke:rgb(0,0,0);
-  stroke-width:2;
-  marker-end:url(#markerArrow);
-}
+
 .wire{
   border: 1px solid black;
   width: 30px;
@@ -288,35 +294,44 @@ nav{
   top: 4%;
   cursor: grab;
 }
-.raingauge{
-  border: 1px dashed gray;
-  width: 100px;
-  height: 100px;
-  left: 18%;
-  top: 4%;
-  position: absolute;
-}
-.pressure{
-    border: 1px dashed gray;
-    width: 100px;
-    height: 100px;
-    left: 18%;
-    top: 25%;
-    position: absolute;
-}
+
 .soil_temp{
-  border: 1px dashed gray;
+
   width: 100px;
   height: 100px;
   left: 25%;
-  top: 45%;
+  top: 46%;
   position:absolute;
 }
 .soil_moist{
-  border: 1px dashed gray;
+
   width: 100px;
   height: 100px;
-  left: 47%;
+  left: 49%;
   top: 23%;
   position:absolute;
+}
+.battery{
+
+  width: 100px;
+  height: 100px;
+  left: 38%;
+  top: 46%;
+  position:absolute;
+}
+.booster{
+
+  width: 100px;
+  height: 100px;
+  top: 65%;
+  left: 38%;
+  position: absolute;
+}
+.panell{
+    position: absolute;
+    
+    width: 100px;
+    height: 100px;
+    left: 38%;
+    top: 83%;
 }

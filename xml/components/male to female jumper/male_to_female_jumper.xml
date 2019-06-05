@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Male to Female Jumper</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">male_to_female_main.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+	<image title="adc1">rss2_mote_ADC1.png</image>
+	<image title="isp">rss2_mote_ISP.png</image>
+	<image title="i2c">rss2_mote_I2C.png</image>
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used for connecting female header pin of any development board to other board having a male connector.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<length title="length">125mm</length>
+		<connectorType title="connectorType">Male and Female</connectorType>
+		<weight title="weight">G.W 34g</weight>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		This is a useful accessory for you when you need to connect female pins with male pins at some special occasions.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.seeedstudio.com/1-Pin-Female-Male-Jumper-Wire-125mm-50pcs-pac-p-1319.html</link>
+	
+</component>
