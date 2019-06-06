@@ -123,35 +123,36 @@ $('#award').click(function(e){
         boost_id = $('#'+favs[x].id)
       }
    }
-
+console.log(lines.length);
    for (var i = 0; i < lines.length; i++) {
      // console.log(lines[i]);
      // if(colDetect(panel_id, $('#'+lines[i].id)) && colDetect(boost_id, $('#'+lines[i].id)) || colDetect(boost_id, $('#'+lines[i].id)) && colDetect(panel_id, $('#'+lines[i].id)) ){
      //    $('#'+lines[i].id).css({"border":"1px solid green"});
      // }
-     // console.log(collision(pcb_id, $('#'+lines[i].id)));
-     //    console.log(collision(battery_id, $('#'+lines[i].id)));
-     //   console.log(collision(boost_id, $('#'+lines[i].id)));
-     //    console.log(collision(panel_id, $('#'+lines[i].id)));
-     //      console.log(collision(temp_id, $('#'+lines[i].id)));
-      if( pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && battery_id != null && colDetect(battery_id, $('#'+lines[i].id))){
-        $('#'+lines[i].id).css({"border":"1px solid green"});
 
-      }
-      else if(pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && temp_id != null && colDetect(temp_id, $('#'+lines[i].id))){
-        $('#'+lines[i].id).css({"border":"1px solid green"});
-        // console.log($('#'+lines[i].id).offset());
-      }
-      else if(battery_id != null && colDetect(battery_id, $('#'+lines[i].id)) && boost_id != null && colDetect(boost_id, $('#'+lines[i].id))){
-        $('#'+lines[i].id).css({"border":"1px solid green"});
-        // console.log($('#'+lines[i].id).offset());
-      }
-      else if(boost_id != null && colDetect(boost_id, $('#'+lines[i].id)) && panel_id != null && colDetect(panel_id, $('#'+lines[i].id))){
-        $('#'+lines[i].id).css({"border":"1px solid green"});
-      }
-      else{
-          $('#'+lines[i].id).css({"border":"1px solid red"});
-      }
+     console.log(isOverlap(pcb_id, $('#'+lines[i].id)));
+        console.log(isOverlap(battery_id, $('#'+lines[i].id)));
+       console.log(isOverlap(boost_id, $('#'+lines[i].id)));
+        console.log(isOverlap(panel_id, $('#'+lines[i].id)));
+          console.log(isOverlap(temp_id, $('#'+lines[i].id)));
+      // if( pcb_id != null && isOverlap(pcb_id, $('#'+lines[i].id)) && battery_id != null && colDetect(battery_id, $('#'+lines[i].id))){
+      // alert('wow');
+      //
+      // }
+      // else if(pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && temp_id != null && colDetect(temp_id, $('#'+lines[i].id))){
+      //   $('#'+lines[i].id).css({"border":"1px solid green"});
+      //   // console.log($('#'+lines[i].id).offset());
+      // }
+      // else if(battery_id != null && colDetect(battery_id, $('#'+lines[i].id)) && boost_id != null && colDetect(boost_id, $('#'+lines[i].id))){
+      //   $('#'+lines[i].id).css({"border":"1px solid green"});
+      //   // console.log($('#'+lines[i].id).offset());
+      // }
+      // else if(boost_id != null && colDetect(boost_id, $('#'+lines[i].id)) && panel_id != null && colDetect(panel_id, $('#'+lines[i].id))){
+      //   $('#'+lines[i].id).css({"border":"1px solid green"});
+      // }
+      // else{
+      //     $('#'+lines[i].id).css({"border":"1px solid red"});
+      // }
    }
    $('#rightcon').text(sum);
   $('#wrong').text(total-sum);
