@@ -126,7 +126,7 @@ nav{
 }
 .running{
   position: absolute;
-cursor: grab;
+
 }
 .main{
   border: 1px dashed gray;
@@ -153,7 +153,7 @@ cursor: grab;
   width: 200px;
   height: 250px;
   margin: 2%;
-
+  left: 40%;
 }
 .touched{
   border:4px dashed green;
@@ -235,6 +235,13 @@ footer{
 }
 .ms2{
   width: 100%;
-  border: 1px solid red;
+
   height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+#award{
+  position: absolute;
+  top: 90%;
+  left: 88%;
 }

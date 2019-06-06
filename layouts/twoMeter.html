@@ -1,13 +1,4 @@
 <div class="ms2">
-
-
-
-
-
-
-
-
-
 <table class = "table owk">
   <tr><td>Right connections:</td><td id="rightcon"></td></tr>
 <tr><td>wrong connections:</td><td id="wrong"></td></tr>
@@ -23,28 +14,31 @@
   $(function(){
 
 var count = 0;
+var counter =[];
     $('#ban').on('click','.opo', function(evt){
-      $('.ms2').append("<img id = 'drag"+count+"' src = '"+evt.target.attributes[2].nodeValue+"' width='100' is_main ='"+evt.target.attributes[3].nodeValue+"' height='100' class = 'draggable running '/>");
+      $('.ms2').append("<img id = 'drag"+count+"' src = '"+evt.target.attributes[1].nodeValue+"' width='100' is_main ='"+evt.target.attributes[2].nodeValue+"' height='100' class = 'draggable running '/>");
       count++;
       $( ".draggable" ).draggable({
           start: function(ex) {
-
               if($(this).hasClass('lastActive')){
                 $(this).removeClass('lastActive').addClass('activeNow');
               }
               $(this).addClass('activeNow');
 
-
              },
 
-         drag: function(ex) {
+         drag: function(exc) {
 
+           if(exc.target.attributes[3].nodeValue.toString() == "true"){
 
+             exc.target.attributes[2].nodeValue=200;
+             exc.target.attributes[4].nodeValue=250;
+           }
 
-
-        },
+         },
         stop: function () {
           points = [];
+          offsets = [];
            $(this).removeClass('lastActive');
             $(this).removeClass('activeNow');
 
@@ -55,6 +49,10 @@ var count = 0;
               if(points.length == 0){
                 var x = el.pageX;
                 var y = el.pageY;
+                var x1 = el.pageX - $(this).offset().left;
+                var y2 = el.pageY - $(this).offset().top;
+                var panza = {x1,y2};
+                counter.push(panza);
 
                 var points_ar = {};
                 points_ar = {x,y};
@@ -64,13 +62,17 @@ var count = 0;
               else if(points.length ==1){
                 var x = el.clientX;
                 var y = el.clientY;
+                var refre = $(this).offset().left;
+                var x1 = el.pageX - $(this).offset().left;
+                var y2 = el.pageY - $(this).offset().top;
                 var parent = el.target.attributes[0].nodeValue;
-                console.log(parent);
+                var panza = {x1, y2};
+                counter.push(panza);
                 var points_ar = {};
                 points_ar = {x,y};
                 points.push(points_ar);
                 points.push(parent);
-                //console.log(points[1]);
+
                 connect_images(points[0], points[1], points[2]);
                 points.splice(0,points.length);
               }
@@ -79,12 +81,11 @@ var count = 0;
         }
       })
     });
-    var mnet = document.getElementById('batery');
-    var mnet2 = document.getElementById('boost');
-    var pan= document.getElementById('main_2m');
-    //connectVertical(mnet, mnet2, 'green', 3);
-    //connectVertical(pan, mnet, 'green', 3);
+
+
 $('#award').click(function(e){
+
+
  $('.ms2').each(function(e){
    var results = [
      'images/sht25.png',
@@ -94,20 +95,65 @@ $('#award').click(function(e){
      'images/DC Boost Converter.png',
      'images/solar panel 0.png'
    ];
-   var favs = $(this).find('div');
-   console.log(favs);
+   var favs = $(this).find('img');
+   var lines = $('[class = drawer]');
+
    var sum = 0;
    var total = favs.length;
-   for(var x =0; x < favs.length; x++){
-     if(favs[x].childNodes[0].attributes[1].nodeValue == results[x]){
-       sum++
-       $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('awosome');
+   var pcb_id = null;
+   var battery_id = null;
+   var panel_id = null;
+   var temp_id = null;
+   var boost_id = null;
 
-     }else{
-        $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('wrongie');
-     }
+   for (var x = 0; x < total; x++) {
+      if(favs[x].attributes[1].nodeValue == results[2]){
+        pcb_id = $('#'+favs[x].id)
+      }
+      else if(favs[x].attributes[1].nodeValue == results[3]){
+        battery_id = $('#'+favs[x].id)
+      }
+      else if(favs[x].attributes[1].nodeValue == results[5]){
+        panel_id = $('#'+favs[x].id)
+      }
+      else if(favs[x].attributes[1].nodeValue == results[0]){
+        temp_id = $('#'+favs[x].id)
+      }
+      else if(favs[x].attributes[1].nodeValue == results[4]){
+        boost_id = $('#'+favs[x].id)
+      }
    }
-  $('#rightcon').text(sum);
+
+   for (var i = 0; i < lines.length; i++) {
+     // console.log(lines[i]);
+     // if(colDetect(panel_id, $('#'+lines[i].id)) && colDetect(boost_id, $('#'+lines[i].id)) || colDetect(boost_id, $('#'+lines[i].id)) && colDetect(panel_id, $('#'+lines[i].id)) ){
+     //    $('#'+lines[i].id).css({"border":"1px solid green"});
+     // }
+     // console.log(collision(pcb_id, $('#'+lines[i].id)));
+     //    console.log(collision(battery_id, $('#'+lines[i].id)));
+     //   console.log(collision(boost_id, $('#'+lines[i].id)));
+     //    console.log(collision(panel_id, $('#'+lines[i].id)));
+     //      console.log(collision(temp_id, $('#'+lines[i].id)));
+      if( pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && battery_id != null && colDetect(battery_id, $('#'+lines[i].id))){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+
+      }
+      else if(pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && temp_id != null && colDetect(temp_id, $('#'+lines[i].id))){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+        // console.log($('#'+lines[i].id).offset());
+      }
+      else if(battery_id != null && colDetect(battery_id, $('#'+lines[i].id)) && boost_id != null && colDetect(boost_id, $('#'+lines[i].id))){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+        // console.log($('#'+lines[i].id).offset());
+      }
+      else if(boost_id != null && colDetect(boost_id, $('#'+lines[i].id)) && panel_id != null && colDetect(panel_id, $('#'+lines[i].id))){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+      }
+      else{
+          $('#'+lines[i].id).css({"border":"1px solid red"});
+      }
+   }
+   $('#rightcon').text(sum);
   $('#wrong').text(total-sum);
    var  percent = (sum/total)*100;
   $('#perc').text(percent.toFixed(2)+"%");

@@ -114,27 +114,19 @@
               if(points.length == 0){
                 var x = el.pageX;
                 var y = el.pageY;
-
-                var parent = el.target.parentElement.attributes[1].nodeValue;
-                console.log(parent);
                 var points_ar = {};
                 points_ar = {x,y};
                 points.push(points_ar);
-                points.push(parent);
-
               }
-              else if(points.length ==2){
+              else if(points.length ==1){
                 var x = el.clientX;
                 var y = el.clientY;
-                //var par = el.parent();
-
-                //console.log(parent);
+                var parent = el.target.attributes[0].nodeValue;
+                points.push(parent);
                 var points_ar = {};
                 points_ar = {x,y};
 
                 points.push(points_ar);
-                //points.push(parent);
-                //console.log(points[1]);
                 connect_images(points[0], points[2], points[1]);
                 points.splice(0,points.length);
 
@@ -143,76 +135,51 @@
         }
       })
     });
-    var battery = document.getElementById('batery');
-    var boost = document.getElementById('boost');
-    var main_comp= document.getElementById('main_2m');
-    var panel= document.getElementById('panel');
-    var i2c= document.getElementById('i2c');
-    var temp = document.getElementById('temp');
+
 
 $('#award').click(function(e){
  $('.ms2').each(function(e){
-   var results = [
-     'images/sht25.png',
-     'images/S2-PCB-front clear.png',
-     'images/Li-ion capacitor2 clear.png',
-     'images/DC Boost Converter.PNG',
-     'images/solar panel 0.png'
-   ];
-   var favs = $('[is2meter="true"]');
-   var lines = $('[class = "drawer"]');
+   // var results = [
+   //   'images/sht25.png',
+   //   'images/S2-PCB-front clear.png',
+   //   'images/Li-ion capacitor2 clear.png',
+   //   'images/DC Boost Converter.PNG',
+   //   'images/solar panel 0.png'
+   // ];
 
-   var sum = 0;
-   var total = favs.length;
-   var empties = [];
-   for(var x =0; x < favs.length; x++){
-     if(favs[x].children.length == 0){
-       empties.push(favs[x]);
+   // var sum = 0;
+   // var total = favs.length;
+   // var empties = [];
 
-       for(var i =0; i< empties.length; i++){
-          $('.'+empties[i].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('dull').text("empty");
-        }
-
-       }
-
-    else if(favs[x].childNodes[0].attributes[1].nodeValue == results[x] ){
-       sum++;
-       $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('awosome');
-      // lines[x].style.border = "2px solid pink";
-     }else{
-        $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('wrongie');
-     }
-
-   }
    //var divs = looper();
    //console.log(lines);
-   for (var i = 0; i < lines.length; i++) {
-     if( collision($('#'+lines[i].id), $('#batery')) && $('#batery').hasClass('awosome') && collision($('#'+lines[i].id), $('#main_2m')) && $('#main_2m').hasClass('awosome')){
-         $('#'+lines[i].id).css({'border': '1px solid green'});
-     }
-      else if ( collision($('#'+lines[i].id), $('#temp')) && $('#temp').hasClass('awosome') &&  collision($('#'+lines[i].id), $('#main_2m')) && $('#main_2m').hasClass('awosome')){
+   // for (var i = 0; i < lines.length; i++) {
+   //   if( collision($('#'+lines[i].id), $('#batery')) && $('#batery').hasClass('awosome') && collision($('#'+lines[i].id), $('#main_2m')) && $('#main_2m').hasClass('awosome')){
+   //       $('#'+lines[i].id).css({'border': '1px solid green'});
+   //   }
+   //    else if ( collision($('#'+lines[i].id), $('#temp')) && $('#temp').hasClass('awosome') &&  collision($('#'+lines[i].id), $('#main_2m')) && $('#main_2m').hasClass('awosome')){
+   //
+   //    $('#'+lines[i].id).css({'border': '1px solid green'});
+   //   }
+   //
+   //   else if($('#batery').hasClass('awosome') && collision($('#'+lines[i].id), $('#batery')) && $('#boost').hasClass('awosome') && collision($('#'+lines[i].id), $('#boost'))){
+   //       $('#'+lines[i].id).css({'border': '1px solid green'});
+   //   }
+   //   else if($('#boost').hasClass('awosome') && collision($('#'+lines[i].id), $('#boost')) && $('#panel').hasClass('awosome') && collision($('#'+lines[i].id), $('#panel'))){
+   //       $('#'+lines[i].id).css({'border': '1px solid green'});
+   //   }
+   //   else{
+   //        $('#'+lines[i].id).css({'border': '1px solid red'});
+   //   }
+   //
+   // }
 
-      $('#'+lines[i].id).css({'border': '1px solid green'});
-     }
-
-     else if($('#batery').hasClass('awosome') && collision($('#'+lines[i].id), $('#batery')) && $('#boost').hasClass('awosome') && collision($('#'+lines[i].id), $('#boost'))){
-         $('#'+lines[i].id).css({'border': '1px solid green'});
-     }
-     else if($('#boost').hasClass('awosome') && collision($('#'+lines[i].id), $('#boost')) && $('#panel').hasClass('awosome') && collision($('#'+lines[i].id), $('#panel'))){
-         $('#'+lines[i].id).css({'border': '1px solid green'});
-     }
-     else{
-          $('#'+lines[i].id).css({'border': '1px solid red'});
-     }
-
-   }
-
-  $('#rightcon').text(sum);
-  $('#wrong').text(total-sum);
-   var  percent = (sum/total)*100;
-  $('#perc').text(percent.toFixed(2)+"%");
-  percent<50? $('#perc').addClass('poor'):$('#perc').addClass('good')
-  $('.owk').show();
+  // $('#rightcon').text(sum);
+  // $('#wrong').text(total-sum);
+  //  var  percent = (sum/total)*100;
+  // $('#perc').text(percent.toFixed(2)+"%");
+  // percent<50? $('#perc').addClass('poor'):$('#perc').addClass('good')
+  // $('.owk').show();
 })
 });
 
