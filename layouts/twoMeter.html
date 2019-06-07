@@ -23,7 +23,13 @@ var count = 0;
 var counter =[];
     $('#ban').on('click','.opo', function(evt){
        evt.stopImmediatePropagation();
-      $('.ms2').append("<img id = 'drag"+count+"' src = '"+evt.target.attributes[1].nodeValue+"' width='100' is_main ='"+evt.target.attributes[2].nodeValue+"' height='100' class = 'draggable running '/>");
+       if(evt.target.attributes[2].nodeValue.toString() == "true"){
+         $('.ms2').append("<img id = 'drag"+count+"' src = '"+evt.target.attributes[1].nodeValue+"' width='200' is_main ='"+evt.target.attributes[2].nodeValue+"' height='250' class = 'draggable running '/>");
+       }
+       else{
+        $('.ms2').append("<img id = 'drag"+count+"' src = '"+evt.target.attributes[1].nodeValue+"' width='100' is_main ='"+evt.target.attributes[2].nodeValue+"' height='100' class = 'draggable running '/>");
+       }
+
       count++;
       $( ".draggable" ).draggable({
           start: function(ex) {
@@ -31,16 +37,17 @@ var counter =[];
                 $(this).removeClass('lastActive').addClass('activeNow');
               }
               $(this).addClass('activeNow');
+              if(ex.target.attributes[3].nodeValue.toString() == "true"){
+
+                ex.target.attributes[2].nodeValue=200;
+                ex.target.attributes[4].nodeValue=250;
+              }
 
              },
 
          drag: function(exc) {
 
-           if(exc.target.attributes[3].nodeValue.toString() == "true"){
 
-             exc.target.attributes[2].nodeValue=200;
-             exc.target.attributes[4].nodeValue=250;
-           }
 
          },
         stop: function () {
@@ -61,10 +68,7 @@ var counter =[];
 
                 var panza = {x1,y2};
                 counter.push(panza);
-console.log(panza);
-console.log(x);
-console.log(y);
-console.log($(this).offset());
+
                 var points_ar = {};
                 points_ar = {x,y};
                 points.push(points_ar);
