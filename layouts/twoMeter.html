@@ -1,12 +1,18 @@
 <div class="ms2">
 <table class = "table owk">
+  <tr><td>Expected connections:</td><td id="expectcon"></td></tr>
+  <tr><td>Drawn:</td><td id="draw"></td></tr>
   <tr><td>Right connections:</td><td id="rightcon"></td></tr>
 <tr><td>wrong connections:</td><td id="wrong"></td></tr>
+
 <tr><td>Percentage:</td><td id="perc"></td></tr>
 <tr><td><button class = "btn btn-danger">close</button></td><td></td></tr>
 </table>
 
+<span class = "buttons">
+<button class = "btn btn-warning" style="float: right;" id="clear">Clear</button>&nbsp;
 <button class = "btn btn-primary" style="float: right;" id="award">Check out</button>
+</span>
 </div>
 
 
@@ -16,6 +22,7 @@
 var count = 0;
 var counter =[];
     $('#ban').on('click','.opo', function(evt){
+       evt.stopImmediatePropagation();
       $('.ms2').append("<img id = 'drag"+count+"' src = '"+evt.target.attributes[1].nodeValue+"' width='100' is_main ='"+evt.target.attributes[2].nodeValue+"' height='100' class = 'draggable running '/>");
       count++;
       $( ".draggable" ).draggable({
@@ -51,17 +58,21 @@ var counter =[];
                 var y = el.pageY;
                 var x1 = el.pageX - $(this).offset().left;
                 var y2 = el.pageY - $(this).offset().top;
+
                 var panza = {x1,y2};
                 counter.push(panza);
-
+console.log(panza);
+console.log(x);
+console.log(y);
+console.log($(this).offset());
                 var points_ar = {};
                 points_ar = {x,y};
                 points.push(points_ar);
 
               }
               else if(points.length ==1){
-                var x = el.clientX;
-                var y = el.clientY;
+                var x = el.pageX;
+                var y = el.pageY;
                 var refre = $(this).offset().left;
                 var x1 = el.pageX - $(this).offset().left;
                 var y2 = el.pageY - $(this).offset().top;
@@ -123,47 +134,90 @@ $('#award').click(function(e){
         boost_id = $('#'+favs[x].id)
       }
    }
-console.log(lines.length);
+   var counter = 0;
    for (var i = 0; i < lines.length; i++) {
+
      // console.log(lines[i]);
      // if(colDetect(panel_id, $('#'+lines[i].id)) && colDetect(boost_id, $('#'+lines[i].id)) || colDetect(boost_id, $('#'+lines[i].id)) && colDetect(panel_id, $('#'+lines[i].id)) ){
      //    $('#'+lines[i].id).css({"border":"1px solid green"});
      // }
 
-     console.log(isOverlap(pcb_id, $('#'+lines[i].id)));
-        console.log(isOverlap(battery_id, $('#'+lines[i].id)));
-       console.log(isOverlap(boost_id, $('#'+lines[i].id)));
-        console.log(isOverlap(panel_id, $('#'+lines[i].id)));
-          console.log(isOverlap(temp_id, $('#'+lines[i].id)));
-      // if( pcb_id != null && isOverlap(pcb_id, $('#'+lines[i].id)) && battery_id != null && colDetect(battery_id, $('#'+lines[i].id))){
-      // alert('wow');
-      //
-      // }
-      // else if(pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && temp_id != null && colDetect(temp_id, $('#'+lines[i].id))){
-      //   $('#'+lines[i].id).css({"border":"1px solid green"});
-      //   // console.log($('#'+lines[i].id).offset());
-      // }
-      // else if(battery_id != null && colDetect(battery_id, $('#'+lines[i].id)) && boost_id != null && colDetect(boost_id, $('#'+lines[i].id))){
-      //   $('#'+lines[i].id).css({"border":"1px solid green"});
-      //   // console.log($('#'+lines[i].id).offset());
-      // }
-      // else if(boost_id != null && colDetect(boost_id, $('#'+lines[i].id)) && panel_id != null && colDetect(panel_id, $('#'+lines[i].id))){
-      //   $('#'+lines[i].id).css({"border":"1px solid green"});
-      // }
-      // else{
-      //     $('#'+lines[i].id).css({"border":"1px solid red"});
-      // }
+     // console.log(isOverlap(pcb_id, $('#'+lines[i].id)));
+     //    console.log(isOverlap(battery_id, $('#'+lines[i].id)));
+     //   console.log(isOverlap(boost_id, $('#'+lines[i].id)));
+     //    console.log(isOverlap(panel_id, $('#'+lines[i].id)));
+     //      console.log(isOverlap(temp_id, $('#'+lines[i].id)));
+      if( pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && battery_id != null && !colDetect(battery_id, $('#'+lines[i].id))){
+
+      var Xmin = pcb_id.offset().left+120;
+      var Xmax = pcb_id.offset().left+149;
+      var Ymin = pcb_id.offset().top+206;
+      var Ymax = pcb_id.offset().top+188;
+    if($('#'+lines[i].id).offset().left > Xmin && $('#'+lines[i].id).offset().left < Xmax && $('#'+lines[i].id).offset().top > Ymax && $('#'+lines[i].id).offset().top < Ymin){
+      $('#'+lines[i].id).css({"border":"1px solid green"});
+      counter++;
+    }
+    else{
+
+        $('#'+lines[i].id).css({"border":"1px solid red"});
+    }
+    }
+      else if(pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && temp_id != null && colDetect(temp_id, $('#'+lines[i].id))){
+        var Xmin = pcb_id.offset().left+33;
+        var Xmax = pcb_id.offset().left+44;
+        var Ymin = pcb_id.offset().top+204;
+        var Ymax = pcb_id.offset().top+173;
+        var tespoint = $('#'+lines[i].id).offset().left + $('#'+lines[i].id).width();
+      if(tespoint > Xmin && tespoint < Xmax ){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+        counter++;
+      }
+      else{
+            console.log($('#'+lines[i].id).offset());
+
+          $('#'+lines[i].id).css({"border":"1px solid red"});
+
+      }
+      }
+      else if(battery_id != null && colDetect(battery_id, $('#'+lines[i].id)) && boost_id != null && colDetect(boost_id, $('#'+lines[i].id))){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+        counter++
+        // console.log($('#'+lines[i].id).offset());
+      }
+      else if(boost_id != null && colDetect(boost_id, $('#'+lines[i].id)) && panel_id != null && colDetect(panel_id, $('#'+lines[i].id))){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+        counter++;
+      }
+      else{
+          $('#'+lines[i].id).css({"border":"1px solid red"});
+      }
    }
-   $('#rightcon').text(sum);
-  $('#wrong').text(total-sum);
-   var  percent = (sum/total)*100;
+   var expect = 10;
+    $('#expectcon').text(expect);
+   $('#rightcon').text(counter);
+  $('#wrong').text(lines.length-counter);
+  $('#draw').text(lines.length);
+   var  percent = (counter/expect)*100;
   $('#perc').text(percent.toFixed(2)+"%");
   percent<50? $('#perc').addClass('poor'):$('#perc').addClass('good')
   $('.owk').show();
  })
 })
 
-
+$('.ms2').on('dblclick', '.running', function(evt){
+  //deleteItem(evt.target);
+  $('#draggable').show();
+  $('#del').click(function(){
+      deleteItem(evt.target);
+      $('#draggable').css({"display": "none"});
+  })
+});
+$('.ms2').on('click', '.drawer', function(el){
+    deleteItem(el.target);
+});
+$('#clear').click(function(){
+  clearCanvas($('.ms2'));
+})
   });
 
   </script>
