@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Soil Moisture Sensor</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">soil_moisture_sensor.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Purpose Here</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="rh_callibration">Fully Callibrated with 1.8% RH accuracy</property>
+		<property title="i2c">Digital output with I2C interface</property>
+		<property title="power">Low power consumption</property>
+		<property title="durability">Excellent long term stability</property>
+		<property title="reflow">DFN type package - reflow solderable.</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		Description
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>link</link>
+	
+</component>

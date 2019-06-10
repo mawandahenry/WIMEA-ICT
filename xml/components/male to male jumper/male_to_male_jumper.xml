@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Male to Male Jumper</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">male_to_male_main.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Making Jumper connection to female leads.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="material">FCopper wire</property>
+		<property title="length">20 cm long</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		Connecting to female headers.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.adafruit.com/product/70</link>
+	
+</component>

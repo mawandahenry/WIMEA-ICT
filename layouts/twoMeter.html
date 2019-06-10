@@ -1,33 +1,16 @@
 <div class="ms2">
-  <div class="temp text-center" id="temp" is2meter = "true" style="display:inline-block; ">
-
-    </div>
-
-  <div class="i2c text-center" id="i2c" is2meter = "true" style="display:inline-block;">
-
-    </div>
-    <div class="main_2m" id="main_2m" is2meter = "true" >
-
-      </div>
-<div class="batery" id="batery" is2meter = "true">
-
- </div>
-
-  <div class="boost" id="boost" is2meter = "true">
-
-</div>
-
-<div class="panel" id="panel" is2meter = "true">
-
-</div>
 <table class = "table owk">
+  <tr><td>Expected connections:</td><td id="expectcon"></td></tr>
+  <tr><td>Drawn:</td><td id="draw"></td></tr>
   <tr><td>Right connections:</td><td id="rightcon"></td></tr>
 <tr><td>wrong connections:</td><td id="wrong"></td></tr>
-<tr><td>Percentages:</td><td id="perc"></td></tr>
-<tr><td><button class = "btn btn-danger">close</button></td><td><button class = "btn btn-info">right connection</button></td></tr>
+
+<tr><td>Percentage:</td><td id="perc"></td></tr>
+<tr><td><button class = "btn btn-danger">close</button></td><td></td></tr>
 </table>
+
 <span class = "buttons">
-<button class = "btn btn-warning" style="float: right;" id="clear">Clear</button>
+<button class = "btn btn-warning" style="float: right;" id="clear">Clear</button>&nbsp;
 <button class = "btn btn-primary" style="float: right;" id="award">Check out</button>
 </span>
 </div>
@@ -35,147 +18,190 @@
 
   <script>
   $(function(){
-    /*
-    this function loops through
-     all the divs we have on the
-      canvas and stores them into an array
-      */
-    function looper(){
-      var poc_arr = [];
 
-      $('.ms2').each(function(evt){
-        var tok = $(this.children);
-        for(var i =0; i<tok.length; i++ ){
-         if(tok[i].hasAttribute("is2meter")){ //checks for all divs with is2meter attrbute
-           poc_arr.push(tok[i]); //ushes them into an array which it returns
-         }
-        }
-      })
-      return poc_arr; //returned array
-    }
+var count = 0;
+var counter =[];
     $('#ban').on('click','.opo', function(evt){
-//events that ar fired when an image on the dashboard is clicked
-      $('.ms2').append("<img id = \"drag\" src = '"+evt.target.attributes[1].nodeValue+"' width='100' is_main ='"+evt.target.attributes[2].nodeValue+"' height='100' class = 'draggable running '/>");
-      $( ".draggable" ).draggable({// setting the image properties to draggable
+       evt.stopImmediatePropagation();
+       if(evt.target.attributes[2].nodeValue.toString() == "true"){
+         $('.ms2').append("<img id = 'drag"+count+"' src = '"+evt.target.attributes[1].nodeValue+"' width='200' is_main ='"+evt.target.attributes[2].nodeValue+"' height='250' class = 'draggable running '/>");
+       }
+       else{
+        $('.ms2').append("<img id = 'drag"+count+"' src = '"+evt.target.attributes[1].nodeValue+"' width='100' is_main ='"+evt.target.attributes[2].nodeValue+"' height='100' class = 'draggable running '/>");
+       }
+
+      count++;
+      $( ".draggable" ).draggable({
           start: function(ex) {
-        // start events when dragging is about to start
-              if($(this).hasClass('lastActive')){ //check if image has lastActive class
-                $(this).removeClass('lastActive').addClass('activeNow');//remove it and add active class
+              if($(this).hasClass('lastActive')){
+                $(this).removeClass('lastActive').addClass('activeNow');
               }
               $(this).addClass('activeNow');
+              if(ex.target.attributes[3].nodeValue.toString() == "true"){
+
+                ex.target.attributes[2].nodeValue=200;
+                ex.target.attributes[4].nodeValue=250;
+              }
+
              },
-         drag: function(ex) {
-             var starter = looper(); //returns all divs on the canvas
-           var condi = ex.target.attributes[3].nodeValue; //access width of images
-            var c_hei = ex.target.attributes[4].nodeValue; // access heght of the image
+
+         drag: function(exc) {
 
 
-            for(var i = 0; i < starter.length; i++){
-              //if image collides with main component div then... add touches class for green borders
-              if(collision($('.main_2m'), $(this)) && $(this)[0].attributes[3].nodeValue){
-                $('.main_2m').removeClass('defaulty').addClass('touched');
-                //set image width to 200 and image height to 250
-                  ex.target.attributes[2].nodeValue = 200;
-                  ex.target.attributes[4].nodeValue = 250;
 
-              }
-              else if (collision($('.'+starter[i].classList[0]), $(this))){
-                //if image collides with any div in array, then give it purple borders
-                  $('.'+starter[i].classList[0]).addClass('pointed');
-              }
-              else{
-                //else change back width and height to original 100px
-                //remove the purple or green borders
-                $('.'+starter[i].classList[0]).removeClass('touched').removeClass('pointed');
-                ex.target.attributes[2].nodeValue = 100;
-                ex.target.attributes[4].nodeValue = 100;
-              }
-            }
-
-
-            // else if(){
-            // }
-            // else{
-            //   $('.main_2m').removeClass('touched');
-            //   ex.target.attributes[2].nodeValue = 100;
-            //   ex.target.attributes[4].nodeValue = 100;
-            // }
-
-        },
-        stop: function() {
-          //when dragging stops.......????
-          var loopin = looper();// reference the divs array again
-           $(this).removeClass('lastActive'); //remove purple, blue borders
+         },
+        stop: function () {
+          points = [];
+          offsets = [];
+           $(this).removeClass('lastActive');
             $(this).removeClass('activeNow');
-              $(this).removeClass('pointed');
-             //console.log($(this)[0].attributes[6].nodeValue);
-            for(var i =0; i < loopin.length; i++){
-              //loop through all the divs again to find if a div has an image
-              if(collision($('#'+loopin[i].id), $(this))){
-                 if($('#'+loopin[i].id).find('img').length){
-                   $(this)[0].attributes[6].nodeValue = 0;
-                   //if yes the ???? some code is missing right here
-                 }else{
 
-                   $('#'+loopin[i].id).html($(this)); //add image to this div
-                    $(this).css({'position': 'relative', 'top': 0, 'left': 0});//set css properties
-                    $('#'+loopin[i].id).css({'backgrond-color':'dodgerblue'});// css props again
-                 }
-                }
-              else{
-                $('#'+loopin[i].id).removeClass('pointed').addClass('defaulty');// remove purple borders
+            $('.main_2m').removeClass('touched');
+              $('#boost').removeClass('pointed').addClass('defaulty');
+              $('.ms2').on('click', '.running', function(el){
+              el.stopImmediatePropagation();
+              if(points.length == 0){
+                var x = el.pageX;
+                var y = el.pageY;
+                var x1 = el.pageX - $(this).offset().left;
+                var y2 = el.pageY - $(this).offset().top;
+
+                var panza = {x1,y2};
+                counter.push(panza);
+
+                var points_ar = {};
+                points_ar = {x,y};
+                points.push(points_ar);
+
               }
-            }
-            $('.main_2m').removeClass('touched');//remove green bordres
+              else if(points.length ==1){
+                var x = el.pageX;
+                var y = el.pageY;
+                var refre = $(this).offset().left;
+                var x1 = el.pageX - $(this).offset().left;
+                var y2 = el.pageY - $(this).offset().top;
+                var parent = el.target.attributes[0].nodeValue;
+                var panza = {x1, y2};
+                counter.push(panza);
+                var points_ar = {};
+                points_ar = {x,y};
+                points.push(points_ar);
+                points.push(parent);
 
+                connect_images(points[0], points[1], points[2]);
+                points.splice(0,points.length);
+              }
+          })
 
         }
       })
     });
-    var battery = document.getElementById('batery');
-    var boost = document.getElementById('boost');
-    var main_comp= document.getElementById('main_2m');
-    var panel= document.getElementById('panel');
-    var i2c= document.getElementById('i2c');
-    var temp = document.getElementById('temp');
+
 
 $('#award').click(function(e){
+
+
  $('.ms2').each(function(e){
    var results = [
      'images/sht25.png',
      'images/i2c cable.png',
      'images/S2-PCB-front clear.png',
      'images/Li-ion capacitor2 clear.png',
-     'images/DC Boost Converter.png',
+     'images/DC Boost Converter.PNG',
      'images/solar panel 0.png'
    ];
-   var favs = $(this).find('div');
+   var favs = $(this).find('img');
+   var lines = $('[class = drawer]');
 
    var sum = 0;
    var total = favs.length;
-   var empties = [];
-   for(var x =0; x < favs.length; x++){
-     if(favs[x].children.length == 0){
-       empties.push(favs[x]);
+   var pcb_id = null;
+   var battery_id = null;
+   var panel_id = null;
+   var temp_id = null;
+   var boost_id = null;
 
-       for(var i =0; i< empties.length; i++){
-          $('.'+empties[i].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('dull').text("empty");
-        }
-
-       }
-
-    else if(favs[x].childNodes[0].attributes[1].nodeValue == results[x]){
-       sum++
-       $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('awosome');
-
-     }else{
-        $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('wrongie');
-     }
-
+   for (var x = 0; x < total; x++) {
+      if(favs[x].attributes[1].nodeValue == results[2]){
+        pcb_id = $('#'+favs[x].id)
+      }
+      else if(favs[x].attributes[1].nodeValue == results[3]){
+        battery_id = $('#'+favs[x].id)
+      }
+      else if(favs[x].attributes[1].nodeValue == results[5]){
+        panel_id = $('#'+favs[x].id)
+      }
+      else if(favs[x].attributes[1].nodeValue == results[0]){
+        temp_id = $('#'+favs[x].id)
+      }
+      else if(favs[x].attributes[1].nodeValue == results[4]){
+        boost_id = $('#'+favs[x].id)
+      }
    }
-  $('#rightcon').text(sum);
-  $('#wrong').text(total-sum);
-   var  percent = (sum/total)*100;
+   var counter = 0;
+   for (var i = 0; i < lines.length; i++) {
+
+     // console.log(lines[i]);
+     // if(colDetect(panel_id, $('#'+lines[i].id)) && colDetect(boost_id, $('#'+lines[i].id)) || colDetect(boost_id, $('#'+lines[i].id)) && colDetect(panel_id, $('#'+lines[i].id)) ){
+     //    $('#'+lines[i].id).css({"border":"1px solid green"});
+     // }
+
+     // console.log(isOverlap(pcb_id, $('#'+lines[i].id)));
+     //    console.log(isOverlap(battery_id, $('#'+lines[i].id)));
+     //   console.log(isOverlap(boost_id, $('#'+lines[i].id)));
+     //    console.log(isOverlap(panel_id, $('#'+lines[i].id)));
+     //      console.log(isOverlap(temp_id, $('#'+lines[i].id)));
+      if( pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && battery_id != null && !colDetect(battery_id, $('#'+lines[i].id))){
+
+      var Xmin = pcb_id.offset().left+120;
+      var Xmax = pcb_id.offset().left+149;
+      var Ymin = pcb_id.offset().top+206;
+      var Ymax = pcb_id.offset().top+188;
+    if($('#'+lines[i].id).offset().left > Xmin && $('#'+lines[i].id).offset().left < Xmax && $('#'+lines[i].id).offset().top > Ymax && $('#'+lines[i].id).offset().top < Ymin){
+      $('#'+lines[i].id).css({"border":"1px solid green"});
+      counter++;
+    }
+    else{
+
+        $('#'+lines[i].id).css({"border":"1px solid red"});
+    }
+    }
+      else if(pcb_id != null && colDetect(pcb_id, $('#'+lines[i].id)) && temp_id != null && colDetect(temp_id, $('#'+lines[i].id))){
+        var Xmin = pcb_id.offset().left+33;
+        var Xmax = pcb_id.offset().left+44;
+        var Ymin = pcb_id.offset().top+204;
+        var Ymax = pcb_id.offset().top+173;
+        var tespoint = $('#'+lines[i].id).offset().left + $('#'+lines[i].id).width();
+      if(tespoint > Xmin && tespoint < Xmax ){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+        counter++;
+      }
+      else{
+            console.log($('#'+lines[i].id).offset());
+
+          $('#'+lines[i].id).css({"border":"1px solid red"});
+
+      }
+      }
+      else if(battery_id != null && colDetect(battery_id, $('#'+lines[i].id)) && boost_id != null && colDetect(boost_id, $('#'+lines[i].id))){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+        counter++
+        // console.log($('#'+lines[i].id).offset());
+      }
+      else if(boost_id != null && colDetect(boost_id, $('#'+lines[i].id)) && panel_id != null && colDetect(panel_id, $('#'+lines[i].id))){
+        $('#'+lines[i].id).css({"border":"1px solid green"});
+        counter++;
+      }
+      else{
+          $('#'+lines[i].id).css({"border":"1px solid red"});
+      }
+   }
+   var expect = 6;
+    $('#expectcon').text(expect);
+   $('#rightcon').text(counter);
+  $('#wrong').text(lines.length-counter);
+  $('#draw').text(lines.length);
+   var  percent = (counter/expect)*100;
   $('#perc').text(percent.toFixed(2)+"%");
   percent<50? $('#perc').addClass('poor'):$('#perc').addClass('good')
   $('.owk').show();
@@ -189,12 +215,12 @@ $('.ms2').on('dblclick', '.running', function(evt){
       deleteItem(evt.target);
       $('#draggable').css({"display": "none"});
   })
-})
+});
+$('.ms2').on('click', '.drawer', function(el){
+    deleteItem(el.target);
+});
 $('#clear').click(function(){
-  clearCanvas($('.ms2'));
-})
-$('.ms2').on('click', '.wire', function(e){
-  alert('wired');
+  clearCanvas($('.canva'));
 })
   });
 

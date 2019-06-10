@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Lithium-ion Capacitor</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">li-ion_capacitor_main.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+	<!-- This component has got no interfaces -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used for storing charge used by the mote.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="capacitance">High capacitance compared to a capacitor.</property>
+		<property title="operatingTemp">Operating temperatures ranging from (-20-70) degrees celcius</property>
+		<property title="enerDensity">High energy density of 14 Wh/kg.</property>
+		<property title="selfDischarge">low self-discharge(less than 5% voltage drop at 25 degrees celcius).</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		A lithium-ion capacitor (LIC) is a hybrid type of capacitor classified as a type of supercapacitor.
+		Activated carbon is typically used as the cathode.
+		The anode of the LIC consists of carbon material which is pre-doped with lithium ions. 
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.mouser.in/new/taiyo-yuden/taiyo-yuden-lithium-ion-capacitors</link>
+	
+</component>

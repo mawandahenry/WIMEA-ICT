@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Anemometer (Wind Speed Sensor)</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">wind_speed.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used to measure the speed of wind.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="cups">3-Cup rotor</property>
+		<property title="output">Output: 1 pulse per rotation 2.5 mph per Hz</property>
+		<property title="diameter">Rotation Diameter: approx. 5 in (~125 mm)</property>
+		<property title="wire">Wire Length: Standard length is 25 feet (8m) tested OK  to  over 1,500 feet.</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		Vortex Wind Sensor is a rugged, proven anemometer. Supplied without any electronics, the Vortex sensor is ideal for "do-it-yourself" projects of all kinds.
+		a high quality 3-cup rotor pressed on a stainless steel shaft, a flat aluminium mounting bracket with 2 holes.	
+		Converting pulses to wind speed is simple using the formula: 2.5 mph per Hz (1 Hz = 1 pulse/second).
+
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>http://www.rdmtechnology.com.au/Vortex%20Wind%20Sensor.html</link>
+	
+</component>

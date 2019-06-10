@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Wind Vane (Wind Direction sensor)</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">wind_direction.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used to measure the direction of flow of wind.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="accuracy">Accuracy: +/-0.3 to 0.5% of signal range</property>
+		<property title="resolution">Resolution: 12 bit or 0.025 degrees</property>
+		<property title="Mounting">The E-Vane is provided with an offset aluminum bracket with 2 mounting holes.</property>
+		<property title="sensor_range">Sensor Range: Full 360 degrees , zero deadband</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		Latest technology in wind sensing: a balanced wind direction vane with a near-zero friction bearing and a high accuracy magnetic angle sensor to provide precision wind direction. 
+		Unique locking feature allows you to easily set "North" regardless of mounting orientation
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>http://www.rdmtechnology.com.au/E-Vane.html</link>
+	
+</component>

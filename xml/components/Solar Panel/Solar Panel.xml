@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Solar Panel</name>
+
+	<!-- COMPONENT IMAGES -->
+	<image title="general">solar_panel_point5W.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+
+
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used for receiving sulight and convert it to electric energy used by the Nodes at the station.</purpose>
+
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="power">Power of 0.5 watt </property>
+		<property title="size">Dimensions: 70x55x3(±0.2) mm</property>
+		<property title="voltage">Typical voltage: 5.5V</property>
+		<property title="openCircuit">Open-circuit voltage: 8.2 V</property>
+		<property title="maxLoadVoltage">Maximum load voltage: 6.4V</property>
+	</properties>
+
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		The solar Panel receives the sunlight and converts it to electrical energy which is used to charge the Lithium ion capacitor or Lithium ion battery.
+		0.5W Solar Panel 70x55x3 mm is monocrystalline silicon solar panel, which is the main trend in the future.
+		Comparing to polycrystalline silicon solar panel and thin-film solar panel, monocrystalline silicon solar panel performs higher conversion rate that up to 17%.
+		The surface is covered by fine resin which makes it waterproof, together with a very sturdy back, it is really suitable for outdoor environment.
+		Depending on light intensity, the typical open circuit voltage is 5V.
+	</description>
+
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>#</link>
+
+</component>

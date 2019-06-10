@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>SD Card Module</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">sd_card_module.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>It provide means for interfacing the SD card to the LPG board</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="op_Voltage">Operating voltage 5V</property>
+		<property title="communication">Communication: SPI Communication method</property>
+		<property title="socket">Socket: SD card Socket</property>
+		<property title="file_system">File system: Supports FAT16 and FAT32</property>
+		<property title="capacity">Capacity support: Support 2gb to 4gb</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		The SD Card Module is a simple solution for transferring data to and from a standard SD card. 
+        The pinout is directly compatible with Arduino, but can also be used with other microcontrollers. 
+        This module has SPI interface which is compatible with any sd card and it use 5V or 3.3V power supply which is compatible with Arduino UNO/Mega.
+        SD card module has various applications such as data logger, audio, video, graphics.
+         In the WIMEA-ICT LPG it is used hold the SD card so as weather data can be saved onto it.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://wiki.eprolabs.com/index.php?title=SD_Card_Module</link>
+	
+</component>

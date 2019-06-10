@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Female to Female jumper wire</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">female_to_female_jumper.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used to connect the sink node (RSS2 mote) to power pins and interrupt pins of the Electron modem</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="female">Female black ends</property>
+		<property title="length"> 21 cm long</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		Jumper wires are simply wires that have connector pins at each end, allowing them to be used to connect two points to each other without soldering. 
+        Jumper wires are typically used with breadboards and other prototyping tools in order to make it easy to change a circuit as needed. 
+        Fairly simple.
+         They are used in the LPG to connect the sink node to the to power male pins on the board and for interrupt signals via D1 pin
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>http://blog.sparkfuneducation.com/what-is-jumper-wire</link>
+	
+</component>

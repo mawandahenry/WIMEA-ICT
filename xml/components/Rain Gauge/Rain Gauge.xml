@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Rain Gauge</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">rain_gauge.jpeg</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>It allows a simple to connect TTL interface devices to USB.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="chip">FTDI FT232RL usb/serial chip embedded in the head.</property>
+		<property title="pin">6-pin socket</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		The FTDI cable is a USB to Serial (TTL level) converter which allows for a simple way to connect TTL interface devices to USB.
+		The I/O pins of this FTDI cable are configured to operate at 5V.
+		Itis designed around an FT232RQ, which is housed in a USB A connector.
+		The other side of the cable is terminated with a 0.1" pitch, 6-pin connector with the following pinout: RTS, RX, TX, 5V, CTS, GND (RTS is the green cable and GND is black).
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.adafruit.com/product/70</link>
+	
+</component>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>DS3231 Real Time Clock</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">DS3231_real_time_clock_main.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>It keeps track of the current time in any electronic device that needs to keep accurate time.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="freq">32kHz output Pin</property>
+		<property title="INT/SQW">Active LOW Interrupt</property>
+		<property title="RST">Active LOW Reset</property>
+		<property title="Vbat">Back-up Power Supply Input from Battery</property>
+		<property title="Vcc">VCC: DC Power Pin</property>
+		<property title="SDA">SDA: Serial Data I/O</property>
+		<property title="SCL">SCL: Serial Clock Input</property>
+		<property title="GND">GND: Ground</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		Real Time Clock or RTC is a timekeeping device in the form of an Integrated Circuit or IC.
+		RTC is an integral component of many time critical applications and devices like Servers, GPS, Data Loggers etc.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.electronicshub.org/arduino-ds3231-rtc-module-tutorial/</link>
+	
+</component>

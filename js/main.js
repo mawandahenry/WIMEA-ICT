@@ -1,54 +1,4 @@
 
-/* connectHorizontal was meant to connect 2 divs in horizontal way*/
-function connectHorizontal(div1, div2, color, thickness) {
-    var off_1 = getOffset(div1); //get top, left, width and height
-    var off_2 = getOffset(div2); //get top, left, width and height
-
-    var x1 =  off_1.left+off_1.width; //x1 = width + left offset
-    var y1 = off_1.left;             //y1 = left offset
-    var x2 = off_2.left;            // x2 = left offset again
-    var y2 = off_2.left+off_2.height/2;
-    var length = Math.sqrt(((x2-x1) * (x2-x1)) + ((y2-y1) * (y2-y1)));
-
-    var cx = ((x1 + x2) / 2) - (length / 2);
-    var cy = ((y1 + y2) / 2) - (thickness / 2);
-    var angle = Math.atan2((y1-y2),(x1-x2))*(180/Math.PI);
-    var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
-    document.body.innerHTML += htmlLine;
-}
-
-  function connect(div1, div2, color, thickness) {
-      var off1 = getOffset(div1);
-      var off2 = getOffset(div2);
-      var x1 = off1.left + off1.width;
-      var y1 = off1.top + off1.height/2;
-      var x2 = off2.left;
-      var y2 = off2.top+off2.height/2;
-      var length = Math.sqrt(((x2-x1) * (x2-x1)) + ((y2-y1) * (y2-y1)));
-      var cx = ((x1 + x2) / 2) - (length / 2);
-      var cy = ((y1 + y2) / 2) - (thickness / 2);
-      var angle = Math.atan2((y1-y2),(x1-x2))*(180/Math.PI);
-      var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
-      document.body.innerHTML += htmlLine;
-  }
-
-  function connectVertical(div1, div2, color, thickness) {
-      var off1 = getOffset(div1);
-      var off2 = getOffset(div2);
-
-      var x1 =  off1.left+off1.width/2;
-      var y1 = off1.top+off1.height;
-      var x2 = off2.left+ off2.width/2;
-      var y2 = off2.top;
-      var length = Math.sqrt(((x2-x1) * (x2-x1)) + ((y2-y1) * (y2-y1)));
-      var cx = ((x1 + x2) / 2) - (length / 2);
-      var cy = ((y1 + y2) / 2) - (thickness / 2);
-      var angle = Math.atan2((y1-y2),(x1-x2))*(180/Math.PI);
-
-      var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
-      document.body.innerHTML += htmlLine;
-  }
-
   function getOffset( el ) {
       var _x = 0;
       var _y = 0;
@@ -61,6 +11,13 @@ function connectHorizontal(div1, div2, color, thickness) {
       }
       return { top: _y, left: _x, width: _w, height: _h };
   }
+//set cordinates for a image
+function set_cordinates(x_cordinates, y_cordinates){
+	var x = x_cordinates;
+    var y = y_cordinates;
+    
+    return {x, y};
+}
 
   function readXml(xmlFile, placement,itemClass){
 
@@ -87,42 +44,26 @@ function connectHorizontal(div1, div2, color, thickness) {
   for(var i = 0; i<tagObj.length; i++){
     arr.push(tagObj[i].attributes[0].nodeValue);
     var first = tagObj[i].attributes[2].nodeValue.replace(/['"]+/g, '');
-    tag += "<tr><td><img  class = '"+itemClass+"' src ='"+tagObj[i].attributes[0].nodeValue+"' is_main = "+tagObj[i].attributes[3].nodeValue+" width='50' height='50' ></td><td>"+first+"</td></tr>";
-    // console.log(tagObj[i])
+	var cl = "<h6>"+first+"</h6>";
 
-  }
+    tag += "<tr><td><img  class = '"+itemClass+"' src ='"+tagObj[i].attributes[0].nodeValue+"' is_main = "+tagObj[i].attributes[3].nodeValue+" width='50' height='50' ></td><td>"+cl+"</td></tr>";
+}
   document.getElementById(placement).innerHTML = tag;
 
   }
-
-
-
-
-//var mnet2 = document.getElementById('i2c');
-
-
-function collision($div1, $div2) {
+  function collision($div1, $div2) {
         var x1 = $div1.offset().left; //left ooffset for div1
         var y1 = $div1.offset().top;// top offset for div 1
-
-
         var h1 = $div1.outerHeight(true); // return outerHeight for div1
         var w1 = $div1.outerWidth(true); // return outerWidth for div1
         var b1 = y1 + h1;
         var r1 = x1 + w1;
-
-
-
         var x2 = $div2.offset().left;
         var y2 = $div2.offset().top;
         var h2 = $div2.outerHeight(true);
         var w2 = $div2.outerWidth(true);
-
-
-
         var b2 = y2 + h2;//bottom
         var r2 = x2 + w2;
-
         if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2 ) return false;
         return true;
 }
@@ -131,11 +72,8 @@ function setDimensions($place1, $place2){
   var y1 = $place1.offset().top;
   var h1 = $place1.outerHeight(true);
   var w1 = $place1.outerWidth(true);
-
   $place2.offset().left = 0;
   $place2.offset().top = 0;
-  //$place2.outerHeight() = h1;
-  //$place2.outerWidth() = w1;
 
 return $place2;
 }
@@ -171,30 +109,14 @@ function right(){       //moves image to the right
     //animate = setTimeout(right, 1000);
     adjustLine('img', 'img1', 'line');
 }
-function connect_trial(div1, div2, color, thickness) {
 
-    var x1 = div1.x;
-    var y1 = div1.y;
-    var x2 = div2.x;
-    var y2 = div2.y;
-
-
-    var length = Math.sqrt(((x2-x1) * (x2-x1)) + ((y2-y1) * (y2-y1)));
-
-    line.style.border = '1px solid red';
-
-
-    console.log(length);
-    var cx = ((x1 + x2) / 2) - (length / 2);
-    var cy = ((y1 + y2) / 2) - (thickness / 2);
-    var angle = Math.atan2((y1-y2),(x1-x2))*(180/Math.PI);
-    line.style.transform = "rotate("+angle+"deg)";
-    document.body.appendChild(line);
-    //var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
-    //document.body.innerHTML += htmlLine;
-    //document.body.appendChild(htmlLine);
+function insertAfter(el, referenceNode){
+  referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
 }
-function connect_images(obj1, obj2){
+function connect_images(obj1, obj2, div){
+  var counter = 8;
+
+
   var x1 = obj1.x;
   var y1 = obj1.y;
 
@@ -203,18 +125,133 @@ function connect_images(obj1, obj2){
    var distance = Math.sqrt( ((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)));
     var xmid = (x1+x2)/2;
    var ymid = (y1+y2)/2;
+   var line_id = "line"+x1;
    var slopeinRad = Math.atan2(y1-y2,  x1-x2);
    var slopeinDeg = (slopeinRad * 180)/Math.PI;
    var line = document.createElement('div');
-   line.setAttribute("id", "line_id");
+   line.setAttribute("id", line_id);
+
+   line.setAttribute('class','drawer');
+   line.style.position = "absolute"
    line.style.width = distance+'px';
-   line.style.top = ymid;
-   line.style.border = "1px solid green";
-   line.style.left = xmid-(distance/2);
+   line.style.top = (ymid-58)+'px';
+   line.style.border = "1px solid black";
+   line.style.left = (xmid-(distance/2))-255+'px';
    line.style.transform = "rotate("+slopeinDeg+"deg)";
-   line.style.position = "absolute";
-   console.log(distance);
-   document.body.appendChild(line);
+
+   var ref = document.getElementById(div);
+   insertAfter(line, ref);
+   //ref.append(line);
+ }
+ function return_divs($container, $attr){
+   var poc_arr = [];
+   $container.each(function(evt){
+     var tok = $(this.children);
+     for(var i =0; i<tok.length; i++ ){
+      if(tok[i].hasAttribute($attr)){ //checks for all divs with is2meter attrbute
+        poc_arr.push(tok[i]); //ushes them into an array which it returns
+        //console.log(poc_arr);
+      }
+     }
+   })
+   return poc_arr; //returned array
+ }
+ function collision_revision($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    if ((y1 + $div1.outerHeight(true)) < y2 ||
+        y1 > (y2 + $div2.outerHeight(true)) ||
+        (x1 + $div1.outerWidth(true)) < x2  ||
+        x1 > (x2 + $div2.outerWidth(true)))
+        return false;
+    return true;
+}
+function hitTest($a, $b){
+    var aPos = $a.offset();
+    var bPos = $b.offset();
+
+    var aLeft = aPos.left;
+    var aRight = aPos.left + $a.width();
+    var aTop = aPos.top;
+    var aBottom = aPos.top + $a.height();
+
+    var bLeft = bPos.left;
+    var bRight = bPos.left + $b.width();
+    var bTop = bPos.top;
+    var bBottom = bPos.top + $b.height();
+
+    // http://tekpool.wordpress.com/2006/10/11/rectangle-intersection-determine-if-two-given-rectangles-intersect-each-other-or-not/
+    return !( bLeft > aRight
+        || bRight < aLeft
+        || bTop > aBottom
+        || bBottom < aTop
+        );
+}
+function colDetect( $div1, $div2 ) {
+	// Div 1 data
+	var d1_offset             = $div1.offset();
+	var d1_height             = $div1.outerHeight( true );
+	var d1_width              = $div1.outerWidth( true );
+	var d1_distance_from_top  = d1_offset.top + d1_height;
+	var d1_distance_from_left = d1_offset.left + d1_width;
+
+	// Div 2 data
+	var d2_offset             = $div2.offset();
+	var d2_height             = $div2.outerHeight( true );
+	var d2_width              = $div2.outerWidth( true );
+	var d2_distance_from_top  = d2_offset.top + d2_height;
+	var d2_distance_from_left = d2_offset.left + d2_width;
+
+	var not_colliding = ( d1_distance_from_top < d2_offset.top || d1_offset.top > d2_distance_from_top || d1_distance_from_left < d2_offset.left || d1_offset.left > d2_distance_from_left );
+
+	// Return whether it IS colliding
+	return ! not_colliding;
+};
+function isOverlap(idOne,idTwo){
+        var objOne=$(idOne),
+            objTwo=$(idTwo),
+            offsetOne = objOne.offset(),
+            offsetTwo = objTwo.offset(),
+            topOne=offsetOne.top,
+            topTwo=offsetTwo.top,
+            leftOne=offsetOne.left,
+            leftTwo=offsetTwo.left,
+            widthOne = objOne.width(),
+            widthTwo = objTwo.width(),
+            heightOne = objOne.height(),
+            heightTwo = objTwo.height();
+        var leftTop = leftTwo > leftOne && leftTwo < leftOne+widthOne                  && topTwo > topOne && topTwo < topOne+heightOne,             rightTop = leftTwo+widthTwo > leftOne && leftTwo+widthTwo < leftOne+widthOne                  && topTwo > topOne && topTwo < topOne+heightOne,             leftBottom = leftTwo > leftOne && leftTwo < leftOne+widthOne                  && topTwo+heightTwo > topOne && topTwo+heightTwo < topOne+heightOne,             rightBottom = leftTwo+widthTwo > leftOne && leftTwo+widthTwo < leftOne+widthOne&& topTwo+heightTwo > topOne && topTwo+heightTwo < topOne+heightOne;
+        return leftTop || rightTop || leftBottom || rightBottom;
+}
+
+function connect_images1(obj1, obj2, div){
+  var x1 = obj1.x;
+  var y1 = obj1.y;
+  var counter =0;
+  var x2 = obj2.x;
+  var y2 = obj2.y;
+   var distance = Math.sqrt( ((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)));
+    var xmid = (x1+x2)/2;
+   var ymid = (y1+y2)/2;
+
+   var slopeinRad = Math.atan2(y1-y2,  x1-x2);
+   var slopeinDeg = (slopeinRad * 180)/Math.PI;
+   var line = document.createElement('div');
+   line.setAttribute("id", "line_id"+counter);
+   line.setAttribute('class','drawer');
+   line.style.position = "absolute"
+   line.style.width = distance+'px';
+   line.style.top = (ymid-58)+'px';
+   line.style.border = "1px solid black";
+   line.style.left = (xmid-(distance/2))-245+'px';
+   line.style.transform = "rotate("+slopeinDeg+"deg)";
+   counter++;
+   //console.log(distance);
+   var ref = document.getElementById(div);
+   insertAfter(line, ref);
+   //document.body.innerHTML += line;
 
 
 }

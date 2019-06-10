@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "yes"?>
+
+<list category = "images">
+
+ <image src = "images/S2-PCB-front clear.png"  thumby = "sink_mote"  caption = "RSS2 Mote" main-component = "true"/>
+
+  <image src = "images/lpg_board.PNG" thumby = "lpg_board" caption = "LPG Board" main-component = "false"/>
+  <image src = "images/electron_modem.png" thumby = "modem" caption = "Electron Modem" main-component = "false"/>
+  <image src = "images/lpg_antena.PNG" thumby = "antena" caption = "Antena" main-component = "false"/>
+  <image src = "images/RTC_clock_module.png" thumby = "rtc_module" caption = "DS3231 RTC" main-component = "false"/>
+  <image src = "images/sd_card_module.png" thumby = "sd_card_module" caption = "SD Card Module" main-component = "false"/>
+  <image src = "images/sd_card.png" thumby = "sd_card" caption = "SD Card" main-component = "false"/>
+  <image src = "images/lpg_battery.jpg" thumby = "lpg_battery" caption = "LPG Battery" main-component = "false"/>
+  <image src = "images/female_to_female_jumper.png" thumby = "f2f" caption = "Female to female" main-component = "false"/>
+  <image src = "images/TP4056_charging_protector.jpg" thumby = "f2f" caption = "TP4056" main-component = "false"/>
+
+
+</list>

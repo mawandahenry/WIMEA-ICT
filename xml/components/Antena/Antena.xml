@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>LPG Antena</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">lpg_antena.PNG</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used for sending and receiving wireless signals</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="length">21 cm wire</property>
+		<property title="copper">copper plate</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		The Antenna sends and receives wireless signals
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://community.particle.io/t/electron-antennas/21473</link>
+	
+</component>

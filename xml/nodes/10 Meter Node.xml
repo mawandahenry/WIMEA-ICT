@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone = "yes"?>
+
+<list category = "images">
+
+ <image src = "images/S2-PCB-front clear.png"  thumby = "mote"  caption = "RSS2 Mote" main-component = "true"/>
+
+  <image src = "images/Li-ion capacitor2 clear.png" thumby = "capacitor" caption = "Lithium-ion Capacitor" main-component = "false"/>
+
+ <image src = "images/DC Boost Converter.PNG"  thumby = "boost-convertor" caption = "Boost Converter" main-component = "false"/>
+ <image src = "images/wind_speed.png" thumby = "anemometer" caption = "Anemometer" main-component = "false"/>
+ <image src = "images/wind direction.png" thumby = "wind_vane" caption = "Wind Vane" main-component = "false"/>
+<image src = "images/solar panel 0.png"  thumby = "solar panel" caption = "Solar Panel" main-component = "false"/>
+</list>

@@ -1,0 +1,50 @@
+<div>
+        <div class  = "card">
+          <div class="card-body">
+            <div class="media border p-3">
+              <!--THE COMPONENT'S IMAGE-->
+              <img id="compImage" src="images/low_power_gateway.png" alt="Unavailable" class="mr-3 mt-3 rounded" style="width:210px; height: 200px;"></img>
+              <div class="media-body">
+                <h4 class="compName">Low Power Gateway</h4>
+                <!-- THE COMPONENT'S PURPOSE -->
+                <p id="compPurpose" class="lead">
+                    Used to receive weather data from the nodes using the sink node and then send it to the WIMEA-ICT server via the internet using the electron modem
+                </p>
+              </div>
+            </div>
+            <!-- THE COMPONENT'S DESCRIPTION -->
+            <div class="row">
+              <div class="border mt-2 col-md-12">
+                <h4 class="">Description </h4>
+                <p id="compDescription">
+                    The LPG was desingned by WIMEA-ICT project basing on the Particel elctron modem which is used to establish connections
+                    to the internet service Provider.
+                    The board provides a socket for insertion of the particle electron modem(click more details).
+                    <br>
+                    The LPG was designed to solve the problem of power shortages which faced the earlier Raspberry pi gateway.
+                    It was built for WIMEA-ICT Gen 3 Automatic weather staions.
+                </p>
+              </div>
+            </div>
+            <!-- THE COMPONENT'S LINK -->
+            <div class="row">
+              <div class="mt-2 col-md-12">
+                <h4 class="">Properties </h4>
+                <ul class="list-group" id="compProperties">
+                  <li>DS3231 RTC clock module: For time stamping the weather data reports from the nodes</li>
+                  <li>TP4056 Charging Protection circuit: RTC clock module: For charging the Lithium ion battery (LPG battery)</li>
+                  <li>SD Card module: For connecting the SD card to the PCB </li>
+                  <li>Particle Electron Modem: For establishing connection to the ISP so as the gateway can send data via internet Protocol</li>
+                  <li>RSS2 Mote: Acts as the sink node to receive weather data from other nodes</li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- THE COMPONENT'S LINK -->
+          <div class="card-footer">
+            <a id="compLink" type="submit" href="#" class="btn btn-primary btn-block" target="_blank">More Details</a>
+          </div>
+        </div>
+      </div>
+      

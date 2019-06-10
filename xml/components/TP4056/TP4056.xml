@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>TP4056 Li-Ion Battery Charger Circuit</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">TP4056_charging_protector.jpg</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used to charge the Lithium ion battery of the LPG.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="overCharge">Overcharge protection - the module will safely charge your battery to 4.2V</property>
+		<property title="chageCurrent"> Programmable Charge Current Up to 1000mA</property>
+		<property title="mosfet">No MOSFET, Sense Resistor or Blocking Diode Required</property>
+		<property title="packaging">Available Radiator in 8-Lead SOP Package, the Radiator need connect GND or impending</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		This module uses the TP4056 Li-Ion charge controller IC and a separate protection IC. 
+        There are other types of modules on the market that use the TP4056 but lack any protection circuits or ICs to provide the necessary protection needed with lithium batteries. 
+        This module uses both the TP4056 and the DW01A Li-Ion battery protection IC, which together in combination provide the following protection features:
+        Can be powered, for charging, from a micro USB cable or the + and - connections, see Power Supply Options Diagram below. The power source needs to be able to provide at least 1A for the charger to correctly charge a connected battery. 
+        Most modern phone/USB chargers can provide 1A or more; refer to the label on your phone charger to verify. 
+        If you use the micro USB connection, be sure to use a USB cable that is made to carry at least 1A.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.addicore.com/TP4056-Charger-and-Protection-Module-p/ad310.htm</link>
+	
+</component>

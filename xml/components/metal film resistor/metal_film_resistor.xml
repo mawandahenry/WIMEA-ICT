@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Metal Film Resistor</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">metal_film_resistor_main.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>It uses a metal film to limit the flow of electric current to certain level.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="film">Metal Film.</property>
+		<property title="material">Ceramic Substrate</property>
+		<property title="termial">Connecting Lead</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		Thin film resistors are created using a technique called sputtering which permits a very thin and controlled layer of a material,
+		tantalum nitride or Nichrome, to be deposited onto a substrate.
+		The environment in which the film is laid and without the necessity for high power laser trimming ensures a very stable and accurate resistor.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.sciencedirect.com/topics/engineering/film-resistor</link>
+	
+</component>

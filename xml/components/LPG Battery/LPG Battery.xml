@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>Lithium Ion Battery</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">lpg_battery.jpg</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>It provides power to the entire LPG system. You can call it LPG battery.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="voltage">Voltage: 3.7 V</property>
+		<property title="amps">1800mAh</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		These are very slim, extremely light weight batteries based on Lithium Ion chemistry. Each cell outputs a nominal 3.7V at 1800mAh! Comes terminated with a standard 2-pin JST-PH connector - 2mm spacing between pins. 
+        These batteries require special charging. Do not attempt to charge these with anything but a specialized Lithium Polymer charger.
+        Battery includes built-in protection against over voltage, over current, and minimum voltage. Please use caution when using this battery in wearable projects. When using conductive thread, a short in the thread can create sparks and heat
+         This battery is charged by the TP4056 charging protection circuit module on the LPG board.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.sparkfun.com/products/13813</link>
+	
+</component>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>LPG Board</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">lpg_board.PNG</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>Used for interfacing all the components that make up the LPG</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="i2c">I2C channel for connecting the sink node (RSS2 mote)</property>
+		<property title="rtc">RTC interface for connecting the DS3231 RTC clock</property>
+		<property title="sd">SD card module interface for connecting the SD Card module</property>
+		<property title="tp4056">TP4056 port for interfacing the TP4056 charging protection circuit</property>
+		<property title="switch">Switch for turnning on or off the whole LPG</property>
+		<property title="power">Power male pins for providing power ports for other components</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		The LPG Board is a custom made board for WIMEA-ICT Low power gateway. It is purposely for interfacing the 
+        LPG comonents.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>#</link>
+	
+</component>

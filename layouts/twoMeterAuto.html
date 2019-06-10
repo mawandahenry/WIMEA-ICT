@@ -1,0 +1,185 @@
+
+  <div class="col-md-10 canvas">
+      <!--Animation here -->
+  </div>
+
+
+<!-- Javascript -->
+<script type ="text/javascript">
+var twoMeterAudio = new sound("./audios/final_2mNode.mp3"); // create the audio object
+    $(document).ready(function(){
+            $("#play").one('click', function(el){
+		el.stopImmediatePropagation();
+              twoMeterAudio.play(); // play the audio
+                //console.log("here");
+                $(".canvas").append("<img id = 'rss2_auto' src = 'images/S2-PCB-front clear.png' width = '200' height = '250'>")
+                var rss_position = $("#rss2_auto").offset();
+                var battery_position;
+                var boost_position;
+                var panel_position;
+                $("#rss2_auto").delay(18000).animate({  // wait for 18 seconds for the description of the mote
+                    left: "410",
+                    top: "0"
+                }, 2000, function(){
+                    $(".canvas").append("<img id = 'sht25_auto' src = 'images/sht25.png' width = '150' height = '60'/>")
+                    $("#sht25_auto").delay(5000).animate({  // wait for 5 seconds for the decsription of the sht25
+                    left: "120",
+                    top: "170"
+                }, 4500, function(){
+                  //line one
+                  var rss_position = $("#rss2_auto").offset();
+                  var sht25_position = $("#sht25_auto").offset();
+                    var rssX1 = rss_position.left+43;
+                    var rssY1 = rss_position.top+175;
+                    var sht25X1 = sht25_position.left+160;
+                    var sht25Y1 = sht25_position.top+10;
+                    var rssArray1 = set_cordinates(rssX1, rssY1);
+                    var panelArray = set_cordinates(sht25X1, sht25Y1);
+                    connect_images1(rssArray1, panelArray, "rss2_auto");
+
+                    //line two
+                  var sht25_position = $("#sht25_auto").offset();
+                    var rssX1 = rss_position.left+43;
+                    var rssY1 = rss_position.top+183;
+                    var sht25X1 = sht25_position.left+160;
+                    var sht25Y1 = sht25_position.top+20;
+                    var rssArray1 = set_cordinates(rssX1, rssY1);
+                    var panelArray = set_cordinates(sht25X1, sht25Y1);
+                    connect_images1(rssArray1, panelArray, "rss2_auto");
+
+                    //line one
+                  var rss_position = $("#rss2_auto").offset();
+                  var sht25_position = $("#sht25_auto").offset();
+                    var rssX1 = rss_position.left+43;
+                    var rssY1 = rss_position.top+193;
+                    var sht25X1 = sht25_position.left+160;
+                    var sht25Y1 = sht25_position.top+30;
+                    var rssArray1 = set_cordinates(rssX1, rssY1);
+                    var panelArray = set_cordinates(sht25X1, sht25Y1);
+                    connect_images1(rssArray1, panelArray, "rss2_auto");
+
+                    //line one
+                  var rss_position = $("#rss2_auto").offset();
+                  var sht25_position = $("#sht25_auto").offset();
+                    var rssX1 = rss_position.left+43;
+                    var rssY1 = rss_position.top+200;
+                    var sht25X1 = sht25_position.left+160;
+                    var sht25Y1 = sht25_position.top+40;
+                    var rssArray1 = set_cordinates(rssX1, rssY1);
+                    var panelArray = set_cordinates(sht25X1, sht25Y1);
+                    connect_images1(rssArray1, panelArray, "rss2_auto");
+                    animateBattery();
+
+                })
+        
+            })
+              function animateBattery(){
+                $(".canvas").append("<img id = 'battery_auto' src = 'images/Li-ion capacitor2 clear.png' width = '70' height = '120'/>")
+                battery_position = $("#battery_auto").offset(); 
+                   
+                $("#battery_auto").delay(1000).animate({  // wait for 1 second
+                    left: "500",
+                    top: "270"
+                }, 4000,function(){
+                  var rss2X = rss_position.left+530;
+                  var rss2Y = rss_position.top+201;
+                  //Coordinates for capacitor
+                  var capX = battery_position.left+512;
+                  var capY = battery_position.top+273;
+                  var rssArray = set_cordinates(rss2X, rss2Y);
+                  var capArray = set_cordinates(capX, capY);
+                  connect_images1(rssArray, capArray, "rss2_auto");
+                  //line two
+                  var capX2 = battery_position.left+542;
+                  var capY2 = battery_position.top+277;
+                  //var rssArray = set_cordinates(rss2X, rss2Y);
+                  var capArray2 = set_cordinates(capX2, capY2);
+                  connect_images1(rssArray, capArray2, "rss2_auto");
+                  animateBoost();
+                })
+              };
+
+              //animating boost Converter
+              function animateBoost(){
+                $(".canva").append("<img id = 'boost_auto' src = 'images/DC Boost Converter.PNG' width = '100' height = '50'/>")
+                boost_position = $("#boost_auto").offset();    
+                $("#boost_auto").delay(3000).animate({  // wait for 3 seconds
+                    left: "600",
+                    top: "270"
+                }, 2500, function(){
+                    //Line one 
+                    var capX = battery_position.left+527;
+                    var capY = battery_position.top+273;
+                    var capArray = set_cordinates(capX, capY);
+                    
+                    var boostX1 = boost_position.left+625;
+                    var boostY1 = boost_position.top+310;
+                    var boostArray1 = set_cordinates(boostX1, boostY1);
+                    connect_images1(capArray, boostArray1, "boost_auto");
+
+                    //line two
+                    var capX2 = battery_position.left+558;
+                    var capY2 = battery_position.top+277;
+                    var capArray2 = set_cordinates(capX2, capY2);
+                    
+                    var boostX2 = boost_position.left+617;
+                    var boostY2 = boost_position.top+274;
+                    var boostArray2 = set_cordinates(boostX2, boostY2);
+                    connect_images1(capArray2, boostArray2, "boost_auto");
+                    animatePanel();
+                })
+              };
+
+              //Animating the panel
+              function animatePanel(){
+                $(".canvas").append("<img id = 'solar_panel' src = 'images/solar panel 0.png' width = '100' height = '100'/>")
+                panel_position = $("#solar_panel").offset();    
+                $("#solar_panel").delay(20).animate({   // delay for 0.02 seconds
+                    left: "800",
+                    top: "300"
+                }, 2000, function(){
+                  //Line one 
+                    var boostX1 = boost_position.left+700;
+                    var boostY1 = boost_position.top+315;
+                    var boostArray1 = set_cordinates(boostX1, boostY1);
+
+                    var panelX1 = panel_position.left+813;
+                    var panelY1 = panel_position.top + 360;
+                    var panelArray1 = set_cordinates(panelX1, panelY1);
+                    connect_images1(boostArray1,panelArray1, "boost_auto");
+
+                    //line two
+                    var capX2 = battery_position.left+680;
+                    var capY2 = battery_position.top+281;
+                    var capArray2 = set_cordinates(capX2, capY2);
+                    
+                    var boostX2 = boost_position.left+828;
+                    var boostY2 = boost_position.top+353;
+                    var boostArray2 = set_cordinates(boostX2, boostY2);
+                    connect_images1(capArray2, boostArray2, "boost_auto");
+                })
+              };
+            }); 
+            
+            //stop function
+          $("#stop").click(function(){
+          
+              $("#rss2_auto").stop(true);
+              $("#sht25_auto").stop(true);
+              $("#battery_auto").stop(true);
+              $("#boost_auto").stop(true);
+              $("#solar_panel").stop(true);
+              twoMeterAudio.stop();
+              
+        });
+
+        // volume control
+        // the event for controlling the volume slider
+        //$(document).on("change", "#volumeSlider", function(evt){
+          //console.log(evt.target.value);
+          //var sliderValue = evt.target.value;
+          //twoMeterAudio.setVolume(sliderValue);
+        //});
+        
+    });
+</script>

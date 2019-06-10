@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>SD Card</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">sd_card.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>It provide secondary storage for the LPG to save the weather data and configurations of the AWS gateway.</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="size">Capacity: 16 GB</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		The SD card is inserted into the SD card module which is then fixed into the SD card module female headers on the 
+        LPG board. It stores the weather data reports recieved from the nodes of the station before the gateway can send them to the 
+        WIMEA-ICT server. It also store configuration settings for the AWS like the port to which the data is sent on the 
+        WIMEA-ICT server.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://en.wikipedia.org/wiki/SD_card</link>
+	
+</component>

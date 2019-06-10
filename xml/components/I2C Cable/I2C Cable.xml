@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component>
+	<!-- COMPONENT NAME -->
+	<name>I2C Cable</name>
+	
+	<!-- COMPONENT IMAGES -->
+	<image title="general">i2c_cable.png</image>
+	<image title="thumbnail"></image>
+	<!-- By interface we mean the specific parts on the component where connections are made -->
+		
+	
+	<!-- COMPONENT PURPOSE -->
+	<purpose>
+		Used for connecting to male pins for I2C chanel. For example, connecting the SHT25 (Temperature and Relative Humidity) daughter card to the I2C channel on the RSS2 mote.
+	</purpose>
+	
+	<!-- COMPONENT PROPERTIES -->
+	<properties>
+		<property title="f2f">Female to female leads</property>
+		<property title="GND">Ground wire</property>
+		<property title="SCL">Serial Clock wire (SCL)</property>
+		<property title="SDA">Serial Data wire (SDA)</property>
+		<property title="VCC">Voltage at the Common Collector (VCC). power supply voltage.</property>
+	</properties>
+	
+	<!-- COMPONENT DESCRIPTION -->
+	<description>
+		An Inter-Integrated Circuit (I2C) bus uses two lines, serial data (SDA) and
+		serial clock (SCL), to transfer information between devices connected tothe bus. I2C devices have open-drain outputs. 
+		When an I2C device drives a low, the output of the devices pulls the bus to ground. 
+		When an I2Cdevice switches high, the output of the device goes into a high-Z state where the bus is pulled up to VDD by a pull-up resistor connected between the bus and VDD. 
+		The pull-up resistors along with the capacitance of the cabling or bus creates a charging RC time constant. 
+		If using off board cabling or very long buses, the total bus capacitance increases, which increases the rise time of the signal and reduces maximum operating frequency. 
+		The total bus capacitance also increases with the number of devices connected to the bus.
+	</description>
+	
+	<!-- LINK TO COMPONENT'S DETAILS ONLINE -->
+	<link>https://www.analog.com/media/en/technical-documentation/technical-articles/I2C-Cabling.pdf</link>
+	
+</component>
