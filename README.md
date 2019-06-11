@@ -5,9 +5,9 @@
 - current issues that need attention
 > manual simulation</br>
 > automatic simulation</br>
-- [x] @sewante finished audio synchronization</br>
-- [x] @mawanda Henry finished part of the mannual simualation(cores)</br>
-- [x] @grace and Umar worked on the current version of the auto-simulation.</br>
+- [x] @sewante finished audio synchronization :sparkles:</br>
+- [x] @mawanda Henry finished part of the mannual simualation(cores) :+1:</br>
+- [x] @grace and Umar worked on the current version of the auto-simulation. :octocat:</br>
 
 - ***manual simualation***
 > The collision detection algorithm located in js/main.js has to be revisited because it failed to check for collisions between lines and images from top and bottom.</br>
