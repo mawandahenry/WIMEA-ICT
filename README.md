@@ -5,7 +5,7 @@
 - current issues that need attention
 > manual simulation</br>
 > automatic simulation</br>
-- [x] @sewante finished audio synchronization :sparkles:</br>
+- [x] @sewante finished audio synchronization and putting together the explore module :smiley: :sparkles:</br>
 - [x] @mawanda Henry finished part of the mannual simualation(cores) :+1:</br>
 - [x] @grace and Umar worked on the current version of the auto-simulation. :octocat:</br>
 
