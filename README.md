@@ -5,4 +5,6 @@
 - current issues that need attention
 > manual simulation</br>
 > automatic simulation</br>
-- [x] @sewante finished audio synchronization
+- [x] @sewante finished audio synchronization</br>
+- [x] @mawanda Henry finished part of the mannual simualation(cores)</br>
+- [x] @grace and Umar worked on the current version of the auto-simulation
