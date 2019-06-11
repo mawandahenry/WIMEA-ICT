@@ -15,7 +15,7 @@
 function set_cordinates(x_cordinates, y_cordinates){
 	var x = x_cordinates;
     var y = y_cordinates;
-    
+
     return {x, y};
 }
 
@@ -136,7 +136,7 @@ function connect_images(obj1, obj2, div){
    line.style.width = distance+'px';
    line.style.top = (ymid-58)+'px';
    line.style.border = "1px solid black";
-   line.style.left = (xmid-(distance/2))-255+'px';
+   line.style.left = (xmid-(distance/2))-227+'px';
    line.style.transform = "rotate("+slopeinDeg+"deg)";
 
    var ref = document.getElementById(div);
