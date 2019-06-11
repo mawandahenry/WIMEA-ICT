@@ -5,3 +5,4 @@
 - current issues that need attention
 > manual simulation</br>
 > automatic simulation</br>
+- [x] @sewante finished audio synchronization
