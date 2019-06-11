@@ -8,7 +8,11 @@ $(function(){
      $clear.each(function(e){
        var composedDivs = $(this).find('img');
        for (var i = 0; i < composedDivs.length; i++) {//loop through all the divs inside ms2 div
+<<<<<<< HEAD
          composedDivs[i].remove();
+=======
+         composedDivs[i].innerHTML = "";
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 
          $('[class = drawer]').remove();
        }
@@ -30,5 +34,9 @@ $(function(){
 
      })
    }
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 });

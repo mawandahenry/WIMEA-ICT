@@ -44,9 +44,13 @@ function set_cordinates(x_cordinates, y_cordinates){
   for(var i = 0; i<tagObj.length; i++){
     arr.push(tagObj[i].attributes[0].nodeValue);
     var first = tagObj[i].attributes[2].nodeValue.replace(/['"]+/g, '');
+<<<<<<< HEAD
 	var cl = "<h6>"+first+"</h6>";
 
     tag += "<tr><td><img  class = '"+itemClass+"' src ='"+tagObj[i].attributes[0].nodeValue+"' is_main = "+tagObj[i].attributes[3].nodeValue+" width='50' height='50' ></td><td>"+cl+"</td></tr>";
+=======
+    tag += "<tr><td><img  class = '"+itemClass+"' src ='"+tagObj[i].attributes[0].nodeValue+"' is_main = "+tagObj[i].attributes[3].nodeValue+" width='50' height='50' ></td><td>"+first+"</td></tr>";
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 }
   document.getElementById(placement).innerHTML = tag;
 
@@ -109,6 +113,7 @@ function right(){       //moves image to the right
     //animate = setTimeout(right, 1000);
     adjustLine('img', 'img1', 'line');
 }
+<<<<<<< HEAD
 
 function insertAfter(el, referenceNode){
   referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
@@ -130,6 +135,14 @@ function connect_images(obj1, obj2, div){
    var slopeinDeg = (slopeinRad * 180)/Math.PI;
    var line = document.createElement('div');
    line.setAttribute("id", line_id);
+=======
+
+function insertAfter(el, referenceNode){
+  referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+}
+function connect_images(obj1, obj2, div){
+  var counter = 8;
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 
    line.setAttribute('class','drawer');
    line.style.position = "absolute"
@@ -139,6 +152,7 @@ function connect_images(obj1, obj2, div){
    line.style.left = (xmid-(distance/2))-227+'px';
    line.style.transform = "rotate("+slopeinDeg+"deg)";
 
+<<<<<<< HEAD
    var ref = document.getElementById(div);
    insertAfter(line, ref);
    //ref.append(line);
@@ -227,6 +241,8 @@ function isOverlap(idOne,idTwo){
 }
 
 function connect_images1(obj1, obj2, div){
+=======
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
   var x1 = obj1.x;
   var y1 = obj1.y;
   var counter =0;
@@ -235,11 +251,20 @@ function connect_images1(obj1, obj2, div){
    var distance = Math.sqrt( ((x1-x2)*(x1-x2)) + ((y1-y2)*(y1-y2)));
     var xmid = (x1+x2)/2;
    var ymid = (y1+y2)/2;
+<<<<<<< HEAD
 
    var slopeinRad = Math.atan2(y1-y2,  x1-x2);
    var slopeinDeg = (slopeinRad * 180)/Math.PI;
    var line = document.createElement('div');
    line.setAttribute("id", "line_id"+counter);
+=======
+   var line_id = "line"+x1;
+   var slopeinRad = Math.atan2(y1-y2,  x1-x2);
+   var slopeinDeg = (slopeinRad * 180)/Math.PI;
+   var line = document.createElement('div');
+   line.setAttribute("id", line_id);
+
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
    line.setAttribute('class','drawer');
    line.style.position = "absolute"
    line.style.width = distance+'px';
@@ -247,11 +272,29 @@ function connect_images1(obj1, obj2, div){
    line.style.border = "1px solid black";
    line.style.left = (xmid-(distance/2))-245+'px';
    line.style.transform = "rotate("+slopeinDeg+"deg)";
+<<<<<<< HEAD
    counter++;
    //console.log(distance);
    var ref = document.getElementById(div);
    insertAfter(line, ref);
    //document.body.innerHTML += line;
 
+=======
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 
-}
+   var ref = document.getElementById(div);
+   insertAfter(line, ref);
+ }
+ function return_divs($container, $attr){
+   var poc_arr = [];
+   $container.each(function(evt){
+     var tok = $(this.children);
+     for(var i =0; i<tok.length; i++ ){
+      if(tok[i].hasAttribute($attr)){ //checks for all divs with is2meter attrbute
+        poc_arr.push(tok[i]); //ushes them into an array which it returns
+        //console.log(poc_arr);
+      }
+     }
+   })
+   return poc_arr; //returned array
+ }

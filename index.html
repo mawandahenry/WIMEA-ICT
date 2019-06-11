@@ -7,13 +7,20 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>AWS setup guide</title>
 
+<<<<<<< HEAD
     <!--- link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"-->
     <link rel="stylesheet" href="styles/fontawesome/css/all.css" type="text/css">
+=======
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
     <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <link rel="stylesheet" href="styles/jquery-ui.min.css" type="text/css">
 
+<<<<<<< HEAD
     <script src="js/automatic.js"></script>
+=======
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
     <script src = "js/jquery.min.js"></script>
     <script src = "js/jquery-ui.min.js"></script>
     <script src = "js/explore.js"></script>
@@ -60,6 +67,7 @@
                   Explore
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<<<<<<< HEAD
                   <a class="dropdown-item explore_mode" href="#">10 Meter Node</a>
                   <a class="dropdown-item explore_mode" href="#">2 Meter Node</a>
                   <a class="dropdown-item explore_mode" href="#">Ground Node</a>
@@ -67,6 +75,15 @@
                 </div>
               </li>
                 <!--  connector selection area -->
+=======
+                  <a class="dropdown-item explore" href="#">10 Meter Node</a>
+                  <a class="dropdown-item explore" href="#">2 Meter Node</a>
+                  <a class="dropdown-item explore" href="#">Ground Node</a>
+                  <a class="dropdown-item explore" href="#">LPG</a>
+                </div>
+              </li>
+                <!--    connector selection area                  -->
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 
         </ul>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,9 +148,18 @@
     // event for Manual Mode
     $('.manual_mode').click(function(evt){
       evt.preventDefault();
+<<<<<<< HEAD
       var node = evt.target.text; //get the node selected
       readXml('xml/nodes/'+node+'.xml','ban', 'opo');// reads xml, assigns the destination id and also the class to associate with the images
       $('.canva').empty().load('layouts/twoMeter.html');// clears our drawing canvas and loads our 2m drawing area
+=======
+      var category = evt.target.text;
+      var category2 = evt.target.text.split(" ").join("");//returns the text on the clicked element
+
+      console.log(category);
+      readXml('xml/'+category+'.xml','ban', category2);// reads xml, assigns the destination id and also the class to associate with the images
+      $('.canva').empty().load('layouts/'+category2+'.html');// clears our drawing canvas and loads our 2m drawing area
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 
 
     });
@@ -210,6 +236,61 @@
        // load the component's link
        $('#compLink').attr('href', readComponentLink(componentXML));
 
+<<<<<<< HEAD
+=======
+    $('.autom').click(function(evt) { //
+      evt.preventDefault();
+        $('.canva').empty().load('layouts/transition.html');
+    })
+    $('.explore').click((e) => {
+      e.preventDefault();
+      // get the node the user chose
+      var node = e.target.text;
+
+      //load the components for the chosen node in the components pane
+      loadComponents('xml/'+node+'.xml',"image");
+
+      // empty the canva div and load in the display area
+      $('.canva').empty();
+      $('.canva').load('layouts/explore/explore.html');
+
+
+    });
+    //Exploration mode
+    $('#ban').on("click", ".comp", function(evt){
+       evt.preventDefault();
+
+       $('.canva').empty().load('layouts/explore/component.html');
+       var component = evt.target.text;
+
+       // prepare the path to the component's xml file
+       var path = "xml/components/"+component+"/"+component+".xml";
+
+       //get the object representation of the component's xml document
+       var componentXML = readXMLFile(path);
+       // load the component's name
+       $('#compName').text(readComponentName(componentXML));
+
+       // load the component's purpose
+       var purpose = readComponentPurpose(componentXML);
+       $('#compPurpose').text(purpose);
+
+       //load the component's description
+       $('#compDescription').text(readComponentDescription(componentXML));
+
+       // get the component's path to the general image
+       var partialImagePath =  readComponetImage(componentXML, "general");
+       var mainImagePath = "xml/components/"+component+"/"+partialImagePath;
+       // load the component's image
+       $('#compImage').attr('src',mainImagePath) ;
+
+       // load the component's properties
+       $('#compProperties').empty().append(getPropertiesList(componentXML));
+
+       // load the component's link
+       $('#compLink').attr('href', readComponentLink(componentXML));
+
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 
    });
   })

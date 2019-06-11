@@ -7,6 +7,12 @@
 	<image title="general">metal_film_resistor_main.png</image>
 	<image title="thumbnail"></image>
 	<!-- By interface we mean the specific parts on the component where connections are made -->
+<<<<<<< HEAD
+=======
+	<image title="adc1">rss2_mote_ADC1.png</image>
+	<image title="isp">rss2_mote_ISP.png</image>
+	<image title="i2c">rss2_mote_I2C.png</image>
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 		
 	
 	<!-- COMPONENT PURPOSE -->
@@ -14,9 +20,15 @@
 	
 	<!-- COMPONENT PROPERTIES -->
 	<properties>
+<<<<<<< HEAD
 		<property title="film">Metal Film.</property>
 		<property title="material">Ceramic Substrate</property>
 		<property title="termial">Connecting Lead</property>
+=======
+		<film title="film">Metal Film.</film>
+		<material title="material">Ceramic Substrate</material>
+		<termial title="termial">Connecting Lead</termial>
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 	</properties>
 	
 	<!-- COMPONENT DESCRIPTION -->

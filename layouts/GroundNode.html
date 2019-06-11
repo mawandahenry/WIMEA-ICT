@@ -1,0 +1,215 @@
+<div class="ground_main">
+    <div class="main_ground" id="main_ground" isground = "true" >
+
+      </div>
+<div class="soil_temp" id="soil_temp" isground = "true">
+
+ </div>
+ <div class="soil_moist" id="soil_moist" isground = "true">
+
+  </div>
+
+  <div class="battery" id="battery" isground = "true">
+
+</div>
+<div class="booster" id="booster" isground = "true">
+
+</div>
+
+<div class="panell" id="panell" isground = "true">
+
+</div>
+<table class = "table owk">
+  <tr><td>Right connections:</td><td id="rightcon"></td></tr>
+<tr><td>wrong connections:</td><td id="wrong"></td></tr>
+<tr><td>Percentages:</td><td id="perc"></td></tr>
+<tr><td><button class = "btn btn-danger">close</button></td><td><button class = "btn btn-info">right connection</button></td></tr>
+</table>
+<span class = "buttons">
+<button class = "btn btn-warning clear" style="float: right;" id="clear_ground">Clear</button>
+<button class = "btn btn-primary award" style="float: right;" id="check_ground" >Check out</button>
+</span>
+</div>
+<script>
+$(function(){
+  $('#ban').on('click','.GroundNode', function(evt){
+
+    evt.stopImmediatePropagation();
+    $('.ground_main').append("<img  src = '"+evt.target.attributes[1].nodeValue+"' width='100' is_main ='"+evt.target.attributes[3].nodeValue+"' height='100' class = 'drag_ground ground_node '/>");
+    $('.drag_ground').draggable({
+      start: function(){
+        if($(this).hasClass('lastActive')){ //check if image has lastActive class
+          $(this).removeClass('lastActive').addClass('activeNow');//remove it and add active class
+        }
+        $(this).addClass('activeNow');
+      },
+      drag: function(el){
+        var ground_divs = return_divs($('.ground_main'), 'isground'); //returns all divs on the canvas
+        var condi = el.target.attributes[2].nodeValue; //access width of images
+        var c_hei = el.target.attributes[3].nodeValue;
+        for(var i = 0; i < ground_divs.length; i++){
+          //if image collides with main component div then... add touches class for green borders
+          if(collision($('.main_ground'), $(this)) && $(this)[0].attributes[2].nodeValue){
+            $('.main_ground').addClass('touched');
+            //set image width to 200 and image height to 250
+              el.target.attributes[1].nodeValue = 200;
+              el.target.attributes[3].nodeValue = 250;
+
+          }
+          else if (collision($('.'+ground_divs[i].classList[0]), $(this))){
+
+            //if image collides with any div in array, then give it purple borders
+              $('.'+ground_divs[i].classList[0]).addClass('pointed');
+          }
+          else{
+            //else change back width and height to original 100px
+            //remove the purple or green borders
+            $('.'+ground_divs[i].classList[0]).removeClass('touched').removeClass('pointed');
+            el.target.attributes[1].nodeValue = 100;
+            el.target.attributes[3].nodeValue = 100;
+          }
+        }
+      },
+      stop: function(){
+        var points_ground = [];
+        var ground_node = return_divs($('.ground_main'), 'isground');// reference the divs array again
+         $(this).removeClass('lastActive'); //remove purple, blue borders
+          $(this).removeClass('activeNow');
+            $(this).removeClass('pointed');
+            for(var i =0; i < ground_node.length; i++){
+              //loop through all the divs again to find if a div has an image
+              if(collision($('#'+ground_node[i].id), $(this))){
+                 if($('#'+ground_node[i].id).find('img').length){
+                   $(this)[0].attributes[5].nodeValue = 0;
+                     $('#'+ground_node[i].id).removeClass('defaulty');
+                   $('#'+ground_node[i].id).empty().html($(this));
+                 }else{
+
+                   $('#'+ground_node[i].id).html($(this)); //add image to this div
+                   $('#'+ground_node[i].id).removeClass('defaulty').removeClass('pointed');
+                    $(this).css({'position': 'relative', 'top': 0, 'left': 0});//set css properties
+                  // css props again
+
+                 }
+                }
+              else{
+                $('#'+ground_node[i].id).removeClass('pointed');// remove purple borders
+              }
+            }
+            $('.main_ground').removeClass('touched');
+            $('.canva').on('click', '.ground_node', function(el){
+              el.stopImmediatePropagation();
+              if(points_ground.length == 0){
+                var x = el.pageX;
+                var y = el.pageY;
+
+                var parent = el.target.parentElement.attributes[1].nodeValue;
+
+                var points_ar = {};
+                points_ar = {x,y};
+                points_ground.push(points_ar);
+                points_ground.push(parent);
+
+              }
+              else if(points_ground.length ==2){
+                var x = el.clientX;
+                var y = el.clientY;
+                //var par = el.parent();
+
+                //console.log(parent);
+                var points_ar = {};
+                points_ar = {x,y};
+
+                points_ground.push(points_ar);
+                //points.push(parent);
+                //console.log(points[1]);
+                connect_images(points_ground[0], points_ground[2], points_ground[1]);
+                points_ground.splice(0,points_ground.length);
+
+              }
+          })
+      }
+    })
+  });
+  $('#check_ground').click(function(e){
+   $('.ground_main').each(function(e){
+     var results = [
+
+       'images/S2-PCB-front clear.png',
+       'images/soi temperature sensor.png',
+       'images/soil moisture sensor.png',
+       'images/Li-ion capacitor2 clear.png',
+       'images/DC Boost Converter.PNG',
+       'images/solar panel 0.png'
+     ];
+     var favs = $('[isground="true"]');
+     var lines = $('[class = "drawer"]');
+
+     var sum = 0;
+     var total = favs.length;
+     var empties = [];
+     for(var x =0; x < favs.length; x++){
+
+       if(favs[x].children.length == 0){
+         empties.push(favs[x]);
+
+         for(var i =0; i< empties.length; i++){
+            $('.'+empties[i].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('dull').text("empty");
+          }
+
+         }
+
+      else if(favs[x].childNodes[0].attributes[0].nodeValue == results[x] ){
+         sum++;
+         $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('awosome');
+        // lines[x].style.border = "2px solid pink";
+       }else{
+          $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('wrongie');
+       }
+
+     }
+     //var divs = looper();
+     //console.log(lines);
+     for (var i = 0; i < lines.length; i++) {
+       if( collision($('#'+lines[i].id), $('#batery')) && $('#batery').hasClass('awosome') && collision($('#'+lines[i].id), $('#main_2m')) && $('#main_2m').hasClass('awosome')){
+           $('#'+lines[i].id).css({'border': '1px solid green'});
+       }
+        else if ( collision($('#'+lines[i].id), $('#temp')) && $('#temp').hasClass('awosome') &&  collision($('#'+lines[i].id), $('#main_2m')) && $('#main_2m').hasClass('awosome')){
+
+        $('#'+lines[i].id).css({'border': '1px solid green'});
+       }
+
+       else if($('#batery').hasClass('awosome') && collision($('#'+lines[i].id), $('#batery')) && $('#boost').hasClass('awosome') && collision($('#'+lines[i].id), $('#boost'))){
+           $('#'+lines[i].id).css({'border': '1px solid green'});
+       }
+       else if($('#boost').hasClass('awosome') && collision($('#'+lines[i].id), $('#boost')) && $('#panel').hasClass('awosome') && collision($('#'+lines[i].id), $('#panel'))){
+           $('#'+lines[i].id).css({'border': '1px solid green'});
+       }
+       else{
+            $('#'+lines[i].id).css({'border': '1px solid red'});
+       }
+
+     }
+
+    $('#rightcon').text(sum);
+    $('#wrong').text(total-sum);
+     var  percent = (sum/total)*100;
+    $('#perc').text(percent.toFixed(2)+"%");
+    percent<50? $('#perc').addClass('poor'):$('#perc').addClass('good')
+    $('.owk').show();
+  })
+  });
+  $('.ground_main').on('dblclick', '.ground_node', function(evt){
+    //deleteItem(evt.target);
+    $('#draggable').show();
+    $('#del').click(function(){
+        deleteItem(evt.target);
+        $('#draggable').css({"display": "none"});
+    })
+  })
+  $('#clear_ground').click(function(){
+    clearCanvas($('.ground_main'));
+  })
+
+})
+</script>

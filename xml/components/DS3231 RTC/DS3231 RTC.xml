@@ -7,6 +7,12 @@
 	<image title="general">DS3231_real_time_clock_main.png</image>
 	<image title="thumbnail"></image>
 	<!-- By interface we mean the specific parts on the component where connections are made -->
+<<<<<<< HEAD
+=======
+	<image title="adc1">rss2_mote_ADC1.png</image>
+	<image title="isp">rss2_mote_ISP.png</image>
+	<image title="i2c">rss2_mote_I2C.png</image>
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 		
 	
 	<!-- COMPONENT PURPOSE -->
@@ -14,6 +20,7 @@
 	
 	<!-- COMPONENT PROPERTIES -->
 	<properties>
+<<<<<<< HEAD
 		<property title="freq">32kHz output Pin</property>
 		<property title="INT/SQW">Active LOW Interrupt</property>
 		<property title="RST">Active LOW Reset</property>
@@ -22,6 +29,16 @@
 		<property title="SDA">SDA: Serial Data I/O</property>
 		<property title="SCL">SCL: Serial Clock Input</property>
 		<property title="GND">GND: Ground</property>
+=======
+		<32K title="freq">32kHz output Pin</32K>
+		<Vcc title="Vcc">DC Power Pin</Vcc>
+		<INT title="INT/SQW">Active LOW Interrupt</INT>
+		<RST title="RST">Active LOW Reset</RST>
+		<GND title="GND">Ground</GND>
+		<Vbat title="Vbat">Back-up Power Supply Input from Battery</Vbat>
+		<SDA title="SDA">Serial Data I/O</GND>
+		<SCL title="SCL">Serial Clock Input</SCL>
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76
 	</properties>
 	
 	<!-- COMPONENT DESCRIPTION -->

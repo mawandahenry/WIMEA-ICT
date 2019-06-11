@@ -1,12 +1,39 @@
 <div class="ms2">
+<<<<<<< HEAD:layouts/twoMeter.html
+=======
+  <div class="temp text-center" id="temp" is2meter = "true" style="display:inline-block; ">
+
+    </div>
+
+
+    <div class="main_2m" id="main_2m" is2meter = "true" >
+
+      </div>
+<div class="batery" id="batery" is2meter = "true">
+
+ </div>
+
+  <div class="boost" id="boost" is2meter = "true">
+
+</div>
+
+<div class="panel" id="panel" is2meter = "true">
+
+</div>
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76:layouts/2MeterNode.html
 <table class = "table owk">
   <tr><td>Expected connections:</td><td id="expectcon"></td></tr>
   <tr><td>Drawn:</td><td id="draw"></td></tr>
   <tr><td>Right connections:</td><td id="rightcon"></td></tr>
 <tr><td>wrong connections:</td><td id="wrong"></td></tr>
+<<<<<<< HEAD:layouts/twoMeter.html
 
 <tr><td>Percentage:</td><td id="perc"></td></tr>
 <tr><td><button class = "btn btn-danger">close</button></td><td></td></tr>
+=======
+<tr><td>Percentages:</td><td id="perc"></td></tr>
+<tr><td><button class = "btn btn-danger" id="percy">close</button></td><td><button class = "btn btn-info">right connection</button></td></tr>
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76:layouts/2MeterNode.html
 </table>
 
 <span class = "buttons">
@@ -18,6 +45,7 @@
 
   <script>
   $(function(){
+<<<<<<< HEAD:layouts/twoMeter.html
 
 var count = 0;
 var counter =[];
@@ -32,6 +60,21 @@ var counter =[];
 
       count++;
       $( ".draggable" ).draggable({
+=======
+    /*
+    this function loops through
+     all the divs we have on the
+      canvas and stores them into an array
+      */
+
+
+    $('#ban').on('click','.2MeterNode', function(evt){
+//events that ar fired when an image on the dashboard is clicked
+      evt.stopImmediatePropagation();
+      $('.ms2').append("<img id = \"drag\" src = '"+evt.target.attributes[1].nodeValue+"' width='100' is_main ='"+evt.target.attributes[2].nodeValue+"' height='100' class = 'draggable running '/>");
+      $( ".draggable" ).draggable({// setting the image properties to draggable
+
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76:layouts/2MeterNode.html
           start: function(ex) {
               if($(this).hasClass('lastActive')){
                 $(this).removeClass('lastActive').addClass('activeNow');
@@ -44,6 +87,7 @@ var counter =[];
               }
 
              },
+<<<<<<< HEAD:layouts/twoMeter.html
 
          drag: function(exc) {
 
@@ -59,19 +103,84 @@ var counter =[];
             $('.main_2m').removeClass('touched');
               $('#boost').removeClass('pointed').addClass('defaulty');
               $('.ms2').on('click', '.running', function(el){
+=======
+         drag: function(ex) {
+             var starter = return_divs($('.ms2'), 'is2meter'); //returns all divs on the canvas
+            for(var i = 0; i < starter.length; i++){
+              //if image collides with main component div then... add touches class for green borders
+              if(collision($('.main_2m'), $(this)) && $(this)[0].attributes[3].nodeValue){
+                $('.main_2m').addClass('touched');
+                //set image width to 200 and image height to 250
+                  ex.target.attributes[2].nodeValue = 200;
+                  ex.target.attributes[4].nodeValue = 250;
+
+              }
+              else if (collision($('.'+starter[i].classList[0]), $(this))){
+                //if image collides with any div in array, then give it purple borders
+                  $('.'+starter[i].classList[0]).addClass('pointed');
+              }
+              else{
+                //else change back width and height to original 100px
+                //remove the purple or green borders
+                $('.'+starter[i].classList[0]).removeClass('touched').removeClass('pointed');
+                ex.target.attributes[2].nodeValue = 100;
+                ex.target.attributes[4].nodeValue = 100;
+              }
+            }
+
+        },
+        stop: function() {
+          var points = [];
+          //when dragging stops.......????
+          var loopin = return_divs($('.ms2'), 'is2meter');// reference the divs array again
+           $(this).removeClass('lastActive'); //remove purple, blue borders
+            $(this).removeClass('activeNow');
+              $(this).removeClass('pointed');
+
+             //console.log($(this)[0].attributes[6].nodeValue);
+            for(var i =0; i < loopin.length; i++){
+              //loop through all the divs again to find if a div has an image
+              if(collision($('#'+loopin[i].id), $(this))){
+                 if($('#'+loopin[i].id).find('img').length){
+                   $(this)[0].attributes[6].nodeValue = 0;
+                     $('#'+loopin[i].id).removeClass('defaulty');
+                   $('#'+loopin[i].id).empty().html($(this));
+                 }else{
+
+                   $('#'+loopin[i].id).html($(this)); //add image to this div
+                   $('#'+loopin[i].id).removeClass('defaulty').removeClass('pointed');
+                    $(this).css({'position': 'relative', 'top': 0, 'left': 0});//set css properties
+                  // css props again
+
+                 }
+                }
+              else{
+                $('#'+loopin[i].id).removeClass('pointed');// remove purple borders
+              }
+            }
+            $('.main_2m').removeClass('touched');//remove green bordres
+
+            $('.canva').on('click', '.running', function(el){
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76:layouts/2MeterNode.html
               el.stopImmediatePropagation();
               if(points.length == 0){
                 var x = el.pageX;
                 var y = el.pageY;
+<<<<<<< HEAD:layouts/twoMeter.html
                 var x1 = el.pageX - $(this).offset().left;
                 var y2 = el.pageY - $(this).offset().top;
 
                 var panza = {x1,y2};
                 counter.push(panza);
+=======
+
+                var parent = el.target.parentElement.attributes[1].nodeValue;
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76:layouts/2MeterNode.html
 
                 var points_ar = {};
                 points_ar = {x,y};
                 points.push(points_ar);
+<<<<<<< HEAD:layouts/twoMeter.html
 
               }
               else if(points.length ==1){
@@ -92,7 +201,28 @@ var counter =[];
                 points.splice(0,points.length);
               }
           })
+=======
+                points.push(parent);
 
+              }
+              else if(points.length ==2){
+                var x = el.clientX;
+                var y = el.clientY;
+                //var par = el.parent();
+
+                //console.log(parent);
+                var points_ar = {};
+                points_ar = {x,y};
+
+                points.push(points_ar);
+                //points.push(parent);
+                //console.log(points[1]);
+                connect_images(points[0], points[2], points[1]);
+                points.splice(0,points.length);
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76:layouts/2MeterNode.html
+
+              }
+          })
         }
       })
     });
@@ -104,12 +234,12 @@ $('#award').click(function(e){
  $('.ms2').each(function(e){
    var results = [
      'images/sht25.png',
-     'images/i2c cable.png',
      'images/S2-PCB-front clear.png',
      'images/Li-ion capacitor2 clear.png',
      'images/DC Boost Converter.PNG',
      'images/solar panel 0.png'
    ];
+<<<<<<< HEAD:layouts/twoMeter.html
    var favs = $(this).find('img');
    var lines = $('[class = drawer]');
 
@@ -162,6 +292,31 @@ $('#award').click(function(e){
       counter++;
     }
     else{
+=======
+   var favs = $('[is2meter="true"]');
+   var lines = $('[class = "drawer"]');
+
+   var sum = 0;
+   var total = favs.length;
+   var empties = [];
+   for(var x =0; x < favs.length; x++){
+     if(favs[x].children.length == 0){
+       empties.push(favs[x]);
+
+       for(var i =0; i< empties.length; i++){
+          $('.'+empties[i].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('dull').text("empty");
+        }
+
+       }
+
+    else if(favs[x].childNodes[0].attributes[1].nodeValue == results[x] ){
+       sum++;
+       $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('awosome');
+      // lines[x].style.border = "2px solid pink";
+     }else{
+        $('.'+favs[x].classList[0]).removeClass('defaulty').removeClass('pointed').addClass('wrongie');
+     }
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76:layouts/2MeterNode.html
 
         $('#'+lines[i].id).css({"border":"1px solid red"});
     }
@@ -196,17 +351,46 @@ $('#award').click(function(e){
           $('#'+lines[i].id).css({"border":"1px solid red"});
       }
    }
+<<<<<<< HEAD:layouts/twoMeter.html
    var expect = 6;
     $('#expectcon').text(expect);
    $('#rightcon').text(counter);
   $('#wrong').text(lines.length-counter);
   $('#draw').text(lines.length);
    var  percent = (counter/expect)*100;
+=======
+   //var divs = looper();
+   //console.log(lines);
+   for (var i = 0; i < lines.length; i++) {
+     if( collision($('#'+lines[i].id), $('#batery')) && $('#batery').hasClass('awosome') && collision($('#'+lines[i].id), $('#main_2m')) && $('#main_2m').hasClass('awosome')){
+         $('#'+lines[i].id).css({'border': '1px solid green'});
+     }
+      else if ( collision($('#'+lines[i].id), $('#temp')) && $('#temp').hasClass('awosome') &&  collision($('#'+lines[i].id), $('#main_2m')) && $('#main_2m').hasClass('awosome')){
+
+      $('#'+lines[i].id).css({'border': '1px solid green'});
+     }
+
+     else if($('#batery').hasClass('awosome') && collision($('#'+lines[i].id), $('#batery')) && $('#boost').hasClass('awosome') && collision($('#'+lines[i].id), $('#boost'))){
+         $('#'+lines[i].id).css({'border': '1px solid green'});
+     }
+     else if($('#boost').hasClass('awosome') && collision($('#'+lines[i].id), $('#boost')) && $('#panel').hasClass('awosome') && collision($('#'+lines[i].id), $('#panel'))){
+         $('#'+lines[i].id).css({'border': '1px solid green'});
+     }
+     else{
+          $('#'+lines[i].id).css({'border': '1px solid red'});
+     }
+
+   }
+
+  $('#rightcon').text(sum);
+  $('#wrong').text(total-sum);
+   var  percent = (sum/total)*100;
+>>>>>>> d25342700cc57d72038201efa1ed02ca564b0a76:layouts/2MeterNode.html
   $('#perc').text(percent.toFixed(2)+"%");
   percent<50? $('#perc').addClass('poor'):$('#perc').addClass('good')
   $('.owk').show();
- })
 })
+});
 
 $('.ms2').on('dblclick', '.running', function(evt){
   //deleteItem(evt.target);
@@ -222,6 +406,10 @@ $('.ms2').on('click', '.drawer', function(el){
 $('#clear').click(function(){
   clearCanvas($('.canva'));
 })
+$('.ms2').on('click', '.drawer', function(el){
+    deleteItem(el.target);
+})
+
   });
 
   </script>
