@@ -1,6 +1,7 @@
 # WIMEA-ICT</br>
 ## automated setup guide for a weather station</br>
 ![the_pic logo](images/WIMEA.png)</br>
+[![Maintainability](https://api.codeclimate.com/v1/badges/9a034955d51c6f95cff8/maintainability)](https://codeclimate.com/github/mawandahenry/WIMEA-ICT/maintainability)
 ***an automated setup guide for all weather users***
 - current issues that need attention
 > manual simulation</br>
